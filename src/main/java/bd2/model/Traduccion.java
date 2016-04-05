@@ -1,23 +1,45 @@
 package bd2.model;
-
 import java.util.Date;
 
-/**
- * @author bd2
- *
- */
-public class Traduccion extends Tarea {
+public class Traduccion {
 
-
-	protected String texto;
-	protected Parrafo parrafo;
-	protected Idioma idioma;
-
-	public Traduccion(Date fecha, String descripcion, Boolean completa, String texto, Parrafo parrafo, Idioma idioma) {
-		super(fecha, descripcion, completa);
-		this.texto = texto;
-		this.idioma = idioma;
-		this.parrafo = parrafo;
+	private String texto;
+	private Parrafo parrafo;
+	private Idioma idioma;
+	private Tarea tarea;
+	
+	public Traduccion(Date fecha, String desc, Boolean completa, String text, Parrafo parr){
+			
+		Tarea t = new Tarea(fecha, desc, completa);
+		this.tarea = t;
+		this.setTexto(text);
+		this.parrafo = parr;
+	}
+	
+	public Traduccion(Date fecha, String desc, Boolean completa, String text, Parrafo parr, Idioma i){
+		
+		Tarea t = new Tarea(fecha, desc, completa);
+		this.tarea = t;
+		this.setTexto(text);
+		this.parrafo = parr;
+		this.idioma = i;
+		
+	}
+	
+	public Idioma getIdiomaOriginal(){
+		return this.parrafo.getDocumento().getIdioma();
+	}
+	
+	public Idioma getIdioma(){
+		return this.idioma;
+	}
+	
+	public void setIdioma(Idioma i){
+		this.idioma = i;
+	}
+	
+	public Parrafo getParrafo(){
+		return this.parrafo;
 	}
 
 	public String getTexto() {
@@ -27,25 +49,17 @@ public class Traduccion extends Tarea {
 	public void setTexto(String texto) {
 		this.texto = texto;
 	}
-
-	public Idioma getIdioma() {
-		return idioma;
+	
+	public Date getFecha(){
+		return this.tarea.getFecha();
 	}
 	
-	public Idioma getIdiomaOriginal(){
-		return this.getParrafo().getDocumento().getIdioma();
+	public String getDescripcion(){
+		return this.tarea.getDescripcion();
 	}
 
-	public void setIdioma(Idioma idioma) {
-		this.idioma = idioma;
+	public Boolean getCompleta(){
+		return this.tarea.getEstado();
 	}
-
-	public Parrafo getParrafo() {
-		return parrafo;
-	}
-
-	public void setParrafo(Parrafo parrafo) {
-		this.parrafo = parrafo;
-	}	
 	
 }

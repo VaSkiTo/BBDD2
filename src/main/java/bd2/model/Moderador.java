@@ -1,61 +1,116 @@
-/**
- * 
- */
 package bd2.model;
-
 import java.util.Date;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.Calendar;
 import java.util.Collection;
-import java.util.HashSet;
 
-/**
- * @author bd2
- *
- */
-public class Moderador extends Usuario {
+public class Moderador {
 
-	protected Collection<Evaluacion> evaluaciones = new HashSet<Evaluacion>();
-	protected Collection<Idioma> idiomas = new HashSet<Idioma>();
-
-	public Moderador(String email, String nombre, Date fechaDeCreacion) {
-		super(email, nombre, fechaDeCreacion);
+	private int reputacion;
+	private Collection<Idioma> idiomas = new LinkedList<Idioma>();
+	private Collection<Evaluacion> evaluaciones = new LinkedList<Evaluacion>();
+	private Usuario user;
+	
+	public Moderador(String email, String nombre, Date fec){
+		this.user = new Usuario(email, nombre, fec);
+		this.setReputacion(0);
 	}
-
-	public int reputacion() {
-		return this.getEvaluaciones().size();
+	
+	public int reputacion(){
+		
+		int rep=0;
+		Iterator<Evaluacion> iter = this.evaluaciones.iterator();
+		while(iter.hasNext()){
+			
+			Evaluacion element = iter.next();
+			if(element != null){
+				rep++;
+			}
+			
+		}
+		return rep;
 	}
-
-	public Collection<Evaluacion> getEvaluaciones() {
-		return evaluaciones;
+	
+	public void evaluar(Traduccion t, String descripcion, Integer cali){
+		/*Registra	una	nueva evaluación (terminada) para la	Traduccion	recibida por parámetro en la colecciones de	evaluaciones.	El	puntaje	y	la	descripción	
+		de la evaluación son recibidos por parámetro. En este caso, se toma el día actual como fecha de la evaluación.	
+		
+		
+		boolean ok = false;
+		Iterator<Idioma> iter = this.idiomas.iterator();
+		
+		while(!ok && iter.hasNext()){
+			
+			Idioma idio = iter.next();
+			if(idio.getNombre() == t.getIdioma().getNombre()){
+				ok=true;
+			}
+			
+		}
+		[
+		*/
+			if(this.idiomas.contains(t.getIdioma())){
+				Calendar cal = Calendar.getInstance();
+				Date fec = cal.getTime();
+				String txt = t.getTexto();
+				Evaluacion ev = new Evaluacion(fec, txt, t.getCompleta(), t, cali);
+				this.evaluaciones.add(ev);
+			}
+		
 	}
-
-	public void setEvaluaciones(Collection<Evaluacion> evaluaciones) {
-		this.evaluaciones = evaluaciones;
+	
+	public void agregarIdioma(Idioma i){
+		this.idiomas.add(i);
 	}
-
-	public Collection<Idioma> getIdiomas() {
+	
+	public Collection<Idioma> getIdiomas(){
 		return idiomas;
 	}
+	
+	public Collection<Evaluacion> getEvaluaciones(){
+		return evaluaciones;
+	}
+	
+	public boolean manejaIdioma(Idioma i){
+		return this.idiomas.contains(i);
+	}
+	
 
-	public void setIdiomas(Collection<Idioma> idiomas) {
-		this.idiomas = idiomas;
+	public String getEmail() {
+		return this.user.getEmail();
 	}
 
-	public boolean manejaIdioma(Idioma idioma) {
-		return this.getIdiomas().contains(idioma);
+	public void setEmail(String email) {
+		this.user.setEmail(email);
 	}
 
-	public void agregarIdioma(Idioma idioma) {
-		this.getIdiomas().add(idioma);
+	public String getNombre() {
+		return this.user.getNombre();
 	}
 
-	public void evaluar(Traduccion traduccion, String descripcion, int puntaje) throws Exception {
-		Calendar cal = Calendar.getInstance();
-		if (this.manejaIdioma(traduccion.getIdioma()) & this.manejaIdioma(traduccion.getIdiomaOriginal())) {
-			Evaluacion evaluacion = new Evaluacion(cal.getTime(), descripcion, true, traduccion, puntaje);
-			this.getEvaluaciones().add(evaluacion);
-		} else
-			throw new Exception("No se pueden evaluar traducciones de idiomas que el moderador no maneja.");
+	public void setNombre(String nombre) {
+		this.user.setNombre(nombre);
 	}
 
+	public Date getFechaDeCreacion() {
+		return this.user.getFechaDeCreacion();
+	}
+
+	public void setFechaDeCreacion(Date fechaDeCreacion) {
+		this.user.setFechaDeCreacion(fechaDeCreacion);
+	}
+	
+	public int nivel(Idioma i){
+		return this.user.nivel(i);
+	}
+
+	public int getReputacion() {
+		return reputacion;
+	}
+
+	public void setReputacion(int reputacion) {
+		this.reputacion = reputacion;
+	}
+	
 }

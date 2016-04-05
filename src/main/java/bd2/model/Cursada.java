@@ -1,34 +1,113 @@
 package bd2.model;
-
+import java.lang.reflect.Array;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
-import java.util.HashSet;
+import java.util.Iterator;
 
-/**
- * @author bd2
- *
- */
 public class Cursada {
-	protected Curso curso;
-	protected Date inicio;
-	protected Usuario usuario;
-	protected Collection<Prueba> pruebas = new HashSet<Prueba>();
-	private long id;
+
+	/*
+	getNivel(): Integer
+	getIdioma(): Idioma
+	getPruebas(): Prueba[*]
+	getCurso(): Curso
+	setCurso(Curso): void
+	getUsuario(): Usuario
+	setUsuario(Usuario): void
+	getInicio(): Date
+	setInicio(Date): void
+	*/
 	
-	public Cursada(Curso curso, Date inicio, Usuario usuario) {
-		this.curso = curso;
+	
+	private java.util.Date inicio;
+	private Collection<Prueba> pruebas;
+	private Curso curso;
+	private Usuario usuario;
+	
+	public Cursada(Curso c, java.util.Date fec, Usuario u){
+		this.curso = c;
+		this.inicio = fec;
+		this.usuario = u;
+		this.pruebas = new ArrayList<Prueba>();
+	}
+	
+	public boolean finalizada(){
+		/*
+		 * 	Retorna un booleano indicando si la cursada esta finalizada. Esto significa que	 existe	 al	
+			menos una prueba (aprobada) para cada lección del curso correspondiente.	
+		 */
+		
+		boolean ok = false;
+		int aprobadas = 0;int cantLecc = this.curso.getLecciones().size();
+		int i=0;//uso la variable i para contabilizar cuantas lecciones checkie
+		Iterator<Prueba> iter = this.pruebas.iterator();
+		while ( i <= cantLecc){ //mientras me falten lecciones por recorrer, recorro.
+			if(iter.hasNext()){
+				if(iter.next().aprobada()){ //si la leccion esta aprobada, 
+					aprobadas +=1;			//sumo 1 a las aprobadas
+				}
+			}
+			i++;
+		}
+		if(aprobadas == cantLecc){ ok = true;} //si tengo igual de lecciones del curso
+		return ok;							   //como pruebas aprobadas, finalizo la cursada
+		
+		/*
+		 *Otra solucion podria ser llamar al metodo leccionesAprobadas y comparar el size
+		 *que devuelve con el size de la cantidad de lecciones que tiene el curso; si son
+		 *iguales esta finalizada, por el contrario no lo esta. A continuacion escribo la
+		 *solucion planteada
+		 *
+		 *
+		 *	boolean ok = false;
+		 *	if(this.leccionesAprobadas().size() == this.curso.getLecciones().size()){
+		 *			ok = true;
+		 *	}
+		 *	return ok;
+		 *
+		 * */
+		
+	}
+	
+	public void agregarPrueba(Prueba p){
+		this.pruebas.add(p);
+	}
+	
+	public Collection<Prueba> getPruebas(){
+		return this.pruebas;
+	}
+	
+	public Collection<Leccion> leccionesAprobadas(){
+		/* Retorna una colección con todas las lecciones del	
+			curso correspondiente para las que existe una prueba aprobada.
+		 */
+		
+		Collection<Leccion> res = new ArrayList<Leccion>();
+		Iterator<Prueba> iter = this.pruebas.iterator();
+		while(iter.hasNext()){
+			Prueba element = iter.next();
+			if(element.aprobada()){
+				res.add(element.getLeccion());
+			}
+		}
+		return res;		
+	}
+	
+	public int getNivel(){
+		return this.curso.getNivel();
+	}
+
+	public java.util.Date getInicio() {
+		return inicio;
+	}
+
+	public void setInicio(Date inicio) {
 		this.inicio = inicio;
-		this.usuario = usuario;
-		usuario.agregarCursada(this);
 	}
 
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
+	public Idioma getIdioma() {
+		return this.curso.getIdioma();
 	}
 
 	public Curso getCurso() {
@@ -39,53 +118,13 @@ public class Cursada {
 		this.curso = curso;
 	}
 
-	public Date getInicio() {
-		return inicio;
-	}
-
-	public Idioma getIdioma() {
-		return this.getCurso().getIdioma();
-	}
-
-	public int getNivel() {
-		return this.getCurso().getNivel();
-	}
-
-	public void setInicio(Date inicio) {
-		this.inicio = inicio;
-	}
-
-	public void agregarPrueba(Prueba prueba) {
-		this.pruebas.add(prueba);
-	}
-
-	public Collection<Prueba> getPruebas() {
-		return pruebas;
-	}
-
-	public void setPruebas(Collection<Prueba> pruebas) {
-		this.pruebas = pruebas;
-	}
-
-	public Boolean finalizada() {
-		Collection<Leccion> leccionesAprobadas = this.leccionesAprobadas();
-		Collection<Leccion> leccionesEsperadas = this.getCurso().getLecciones();
-		for (Leccion esperada : leccionesEsperadas)
-			if (!leccionesAprobadas.contains(esperada))
-				return false;
-		return true;
-	}
-
-	public Collection<Leccion> leccionesAprobadas() {
-		Collection<Leccion> aprobadas = new ArrayList<Leccion>();
-		for (Prueba prueba : this.getPruebas())
-			if (prueba.aprobada())
-				aprobadas.add(prueba.getLeccion());
-		return aprobadas;
-	}
-
 	public Usuario getUsuario() {
-		return this.usuario;
+		return usuario;
 	}
 
+	public void setUsuario(Usuario user) {
+		this.usuario = user;
+	}
+	
+	
 }

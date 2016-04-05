@@ -1,41 +1,87 @@
 package bd2.model;
-
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashSet;
-/**
- * @author bd2
- *
- */
+import java.util.Iterator;
+import java.util.LinkedList;
 
-import java.util.Date;
-
-/**
- * @author bd2
- *
- */
 public class Usuario {
-	protected String email;
-	protected String nombre;
-	protected Date fechaDeCreacion;
-	protected Collection<Traduccion> traducciones = new HashSet<Traduccion>();
-	protected Collection<Cursada> cursadasRealizadas = new HashSet<Cursada>();
-	private long id;
 
-	public Usuario(String email, String nombre, Date fechaDeCreacion) {
-		super();
-		this.email = email;
-		this.nombre = nombre;
-		this.fechaDeCreacion = fechaDeCreacion;
+	private String email;
+	private String nombre;
+	private java.util.Date fechaDeCreacion;
+	private Collection<Traduccion> traducciones;
+	private Collection<Cursada> cursadasRealizadas;
+	
+	public Usuario(String email, String nombre, java.util.Date hace1Anho){
+		this.setEmail(email);
+		this.setNombre(nombre);
+		this.setFechaDeCreacion(hace1Anho);
+		this.cursadasRealizadas = new ArrayList<Cursada>();
+		this.traducciones = new ArrayList<Traduccion>();
 	}
 	
-	public long getId() {
-		return id;
+	public int nivel(Idioma i){
+		/**
+		 * returns the maximum language level of the language sended
+		 * on the parameter between the approved subjects of the user
+		 */
+		int max = 0;
+		Collection<Cursada> res = this.cursadasAprobadas(i);
+		Iterator<Cursada> iter = res.iterator();
+		while(iter.hasNext()) {
+			Cursada element = iter.next();
+			if(element.getNivel() >= max){
+				max = element.getNivel();
+			}
+		}
+		return max;
+		
 	}
-
-	public void setId(long id) {
-		this.id = id;
+	
+	public ArrayList<Cursada> cursadasAprobadas(Idioma i){
+		/*
+		 * Retorna	todas	las	 cursadas	aprobadas cuyos	cursos
+		 * son del idioma recibido por parámetro.
+		 */
+		ArrayList<Cursada> res = new ArrayList<Cursada>();
+		
+		Iterator<Cursada> iter = this.cursadasRealizadas.iterator();
+		while(iter.hasNext()){
+			Cursada element = iter.next();
+			if(element.getIdioma() == i){
+				//me quedo con las cursadas realizadas iguales al idioma buscado
+				res.add(element);
+			}
+		}
+		
+		/*
+		for(int x=1; x == this.cursadasRealizadas.size(); x++){
+			if(((ArrayList<Cursada>) this.cursadasRealizadas).get(x).getIdioma() == i ){
+				//me quedo con las cursadas realizadas iguales al idioma buscado
+				res.add(((ArrayList<Cursada>) this.cursadasRealizadas).get(x));
+				
+			}
+		}
+		*/
+		return res;
+	}
+	
+	public void agregarCursada (Cursada cur){
+		this.cursadasRealizadas.add(cur);
+	}
+	
+	public void agregarTraduccion(Traduccion t){
+		this.traducciones.add(t);
+	}
+	
+	public Collection<Cursada> getCursadasRealizadas(){
+		return this.cursadasRealizadas;
+	}
+	
+	public Collection<Traduccion> getTraducciones (){
+		return this.traducciones;
 	}
 
 	public String getEmail() {
@@ -46,6 +92,14 @@ public class Usuario {
 		this.email = email;
 	}
 
+	public java.util.Date getFechaDeCreacion() {
+		return fechaDeCreacion;
+	}
+
+	public void setFechaDeCreacion(java.util.Date fechaDeCreacion) {
+		this.fechaDeCreacion = fechaDeCreacion;
+	}
+
 	public String getNombre() {
 		return nombre;
 	}
@@ -53,54 +107,5 @@ public class Usuario {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
-	public Date getFechaDeCreacion() {
-		return fechaDeCreacion;
-	}
-
-	public void setFechaDeCreacion(Date fechaDeCreacion) {
-		this.fechaDeCreacion = fechaDeCreacion;
-	}
-
-	public void agregarCursada(Cursada cursada) {
-		this.cursadasRealizadas.add(cursada);
-	}
-
-	public void agregarTraduccion(Traduccion traduccion) {
-		this.traducciones.add(traduccion);
-	}
-
-	public int nivel(Idioma idioma) {
-		ArrayList<Integer> niveles = new ArrayList<Integer>();
-		for (Cursada cursada : this.cursadasAprobadas(idioma))
-			niveles.add(cursada.getNivel());
-		if(niveles.isEmpty())
-			return 0;
-		else
-			return Collections.max(niveles);
-	}
-
-	public Collection<Cursada> cursadasAprobadas(Idioma idioma) {
-		Collection<Cursada> aprobadas = new ArrayList<Cursada>();
-		for (Cursada cursada : this.getCursadasRealizadas())
-			if (cursada.finalizada() & cursada.getIdioma().equals(idioma))
-				aprobadas.add(cursada);
-		return aprobadas;
-	}
-
-	public Collection<Cursada> getCursadasRealizadas() {
-		return cursadasRealizadas;
-	}
-
-	public void setCursadasRealizadas(Collection<Cursada> cursadasRealizadas) {
-		this.cursadasRealizadas = cursadasRealizadas;
-	}
-
-	public Collection<Traduccion> getTraducciones() {
-		return traducciones;
-	}
-
-	public void setTraducciones(Collection<Traduccion> traducciones) {
-		this.traducciones = traducciones;
-	}
+	
 }

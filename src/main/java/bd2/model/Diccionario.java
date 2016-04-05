@@ -1,67 +1,49 @@
-/**
- * 
- */
 package bd2.model;
-
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author bd2
- *
- */
 public class Diccionario {
 
-	protected Map<String, String> definiciones = new HashMap<String, String>();
-	protected Idioma idioma;
-	protected String edicion;
-	private long id;
-	/**
-	 * 
-	 */
-	public Diccionario(Idioma idioma, String edicion) {
-		this.idioma = idioma;
-		this.edicion = edicion;
-	}
-
-	public Map<String, String> getDefiniciones() {
-		return definiciones;
-	}
-
-	public void setDefiniciones(Map<String, String> definiciones) {
-		this.definiciones = definiciones;
+	
+	private Map<String, String> definiciones = new HashMap<String, String>();
+	private String edicion;
+	private Idioma idioma;
+	
+	public Diccionario(){
+		
 	}
 	
-	public void agregarDefinicion(String palabra, String significado){
-		this.getDefiniciones().put(palabra, significado);
+	public Diccionario(Idioma i, String texto){
+		this.setIdioma(i);
 	}
 	
-	public String definicion(String palabra){
-		return this.getDefiniciones().get(palabra);
+	public void agregarDefinicion(String clave, String valor){
+		this.definiciones.put(clave, valor);
 	}
-
-	public Idioma getIdioma() {
+	
+	public String definicion(String clave){
+		//buscar en el diccionario el valor para la clave dada
+		return this.definiciones.get(clave);
+	}
+	
+	public Map<String, String> getDefiniciones(){
+		return this.definiciones;
+	}
+	
+	public void setIdioma(Idioma i){
+		this.idioma = i;
+	}
+	
+	public Idioma getIdioma(){
 		return idioma;
 	}
-
-	public void setIdioma(Idioma idioma) {
-		this.idioma = idioma;
-	}
-
-	public String getEdicion() {
+	
+	public String getEdicion(){
 		return edicion;
 	}
-
-	public void setEdicion(String edicion) {
-		this.edicion = edicion;
+	
+	public void setEdicion(String edic){
+		this.edicion = edic;
 	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
+	
 }

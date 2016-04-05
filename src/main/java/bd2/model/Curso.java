@@ -1,69 +1,45 @@
 package bd2.model;
-
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
+import java.util.LinkedList;
 
-/**
- * @author bd2
- *
- */
 public class Curso {
-	protected String nombre;
-	protected Idioma idioma;
-	protected int nivel;
-	protected Collection<Leccion> lecciones = new HashSet<Leccion>();
-	private long id;
 
-
-
-	public Curso(String nombre, Idioma idioma, int nivel) {
-		this.nombre = nombre;
-		this.nivel = nivel;
-		this.idioma = idioma;
+	private String nombre;
+	private Integer nivel;
+	private Collection<Leccion> lecciones;
+	private Idioma idioma;
+	
+	public Curso (String name, Idioma idiom, int i){
+		this.setIdioma(idiom);
+		this.setNivel(i);
+		this.setNombre(name);
+		this.lecciones = new ArrayList<Leccion>();
 	}
 	
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
 	public String getNombre() {
 		return nombre;
 	}
-
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
-	public int getNivel() {
+	public Integer getNivel() {
 		return nivel;
 	}
-
-	public void setNivel(int nivel) {
+	public void setNivel(Integer nivel) {
 		this.nivel = nivel;
 	}
-
-	public Collection<Leccion> getLecciones() {
-		return lecciones;
-	}
-
-	public void setLecciones(Collection<Leccion> lecciones) {
-		this.lecciones = lecciones;
-	}
-
-	public void agregarLeccion(Leccion leccion) {
-		this.lecciones.add(leccion);
-	}
-
 	public Idioma getIdioma() {
 		return idioma;
 	}
-
 	public void setIdioma(Idioma idioma) {
 		this.idioma = idioma;
 	}
-
+	public Collection<Leccion> getLecciones() {
+		return lecciones;
+	}
+	public void agregarLeccion(Leccion lecciones) {
+		this.lecciones.add(lecciones);
+	}
+	
 }

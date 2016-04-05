@@ -1,29 +1,16 @@
 package bd2.model;
 
-/**
- * @author bd2
- *
- */
 public class Idioma {
-	protected String nombre;
-	protected Diccionario diccionario;
-	private long id;
 
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public Idioma(){}
+	private String nombre;
+	private Diccionario diccionario;
 	
-	public Idioma(String nombre) {
-		this.nombre = nombre;
-		this.diccionario = new Diccionario(this, "");
+	
+	public Idioma(String i){
+		this.setNombre(i);
+		this.diccionario = new Diccionario();
 	}
-
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -33,10 +20,12 @@ public class Idioma {
 	}
 
 	public Diccionario getDiccionario() {
-		return this.diccionario;
+		return diccionario;
 	}
 
 	public void setDiccionario(Diccionario diccionario) {
 		this.diccionario = diccionario;
 	}
+	
+	
 }

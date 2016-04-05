@@ -1,7 +1,6 @@
 package bd2.tests;
-
-import junit.framework.TestCase;
 import bd2.model.*;
+import junit.framework.TestCase;
 import java.util.Calendar;
 import java.util.Date;
 

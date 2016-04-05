@@ -1,41 +1,35 @@
 package bd2.model;
 
-/**
- * @author bd2
- *
- */
 public class Prueba {
-	protected int puntaje;
-	protected Leccion leccion;
-	private long id;
-
-	public Prueba(Leccion leccion, Integer puntaje) throws Exception {
-		this.setLeccion(leccion);
-		this.setPuntaje(puntaje);
+	
+	private int puntaje;
+	private Leccion leccion;
+	
+	
+	public Prueba(Leccion l, int p){
+		try{
+			if(p>=0 && p<=100){
+				this.setPuntaje(p);
+				this.leccion = l;
+			}
+		}catch(Exception e1){
+			System.out.println("El puntaje de una prueba debe ser un valor entre 0 y 100");
+		}
+		
 	}
 	
-	public Prueba() throws Exception {
-		super();
+	public Boolean aprobada(){
+		return (this.getPuntaje() >= 60);
 	}
 	
-	public long getId() {
-		return id;
+	public void setPuntaje(int p) {
+		if(p>=0 && p<= 100){
+			this.puntaje = p;
+		}
 	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-	public int getPuntaje() {
+	
+	public int getPuntaje(){
 		return puntaje;
-	}
-
-	public void setPuntaje(int puntaje) throws Exception {
-		if (puntaje < 0)
-			throw new Exception(
-					"No se puede usar valores negativos como puntaje de una prueba.");
-		if (puntaje > 100)
-			throw new Exception("No se puede usar valores mayores a 100 como puntaje de una prueba.");
-		this.puntaje = puntaje;
 	}
 
 	public Leccion getLeccion() {
@@ -45,8 +39,6 @@ public class Prueba {
 	public void setLeccion(Leccion leccion) {
 		this.leccion = leccion;
 	}
-
-	public Boolean aprobada() {
-		return this.getPuntaje() >= 60;
-	}
+	
+	
 }

@@ -1,11 +1,11 @@
 package bd2.tests;
 
+import bd2.model.*;
 import junit.framework.TestCase;
 
 import java.util.Calendar;
 import java.util.Date;
 
-import bd2.model.*;
 
 public class CursadaTest extends TestCase {
 

@@ -1,25 +1,13 @@
 package bd2.model;
 
-/**
- * @author bd2
- *
- */
 public class Leccion {
-	protected String nombre;
-	private long id;
 
-	public long getId() {
-		return id;
-	}
+	private String nombre;
 
-	public void setId(long id) {
-		this.id = id;
+	public Leccion(String s){
+		this.setNombre(s);
 	}
 	
-	public Leccion(String nombre){
-		this.nombre = nombre;
-	}
-
 	public String getNombre() {
 		return nombre;
 	}

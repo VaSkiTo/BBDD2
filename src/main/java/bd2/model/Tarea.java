@@ -1,56 +1,42 @@
-/**
- * 
- */
 package bd2.model;
-
-/**
- * @author bd2
- *
- */
 import java.util.Date;
 
-public abstract class Tarea {
+public class Tarea {
 
-	protected Date fecha;
-	protected String descripcion;
-	protected Boolean completa = false;;
-	private long id;
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
+	private java.util.Date fecha;
+	private String descripcion;
+	private Boolean completa = false;
+	
+	public Tarea(java.util.Date fec, String desc, Boolean comp){
+		this.fecha = fec;
+		this.descripcion = desc;
+		this.completa = comp;
 	}
 	
-	public Tarea(Date fecha, String descripcion, Boolean completa) {
-		super();
-		this.fecha = fecha;
-		this.descripcion = descripcion;
-		this.completa = completa;
+	public void completar(){
+		//preguntar que hace completar
+		this.completa = true;
 	}
-	
-	public Date getFecha() {
+
+	public java.util.Date getFecha() {
 		return fecha;
 	}
+
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
+
 	public String getDescripcion() {
 		return descripcion;
 	}
+
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	public Boolean getCompleta() {
-		return completa;
+	
+	public Boolean getEstado(){
+		return this.completa;
 	}
-	public void setCompleta(Boolean completa) {
-		this.completa = completa;
-	}
-	public void completar(){
-		this.setCompleta(false);
-	}
+	
 	
 }

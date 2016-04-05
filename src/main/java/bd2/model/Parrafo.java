@@ -1,40 +1,31 @@
 package bd2.model;
 
-/**
- * @author bd2
- *
- */
+
 public class Parrafo {
-	protected String texto;
-	protected Documento documento;
-	private long id;
 
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
+	private String texto;
+	private Documento documento;
+	
+	public Parrafo(String p, Documento doc){
+		this.texto = p;
+		this.documento = doc;
 	}
 	
-	public Parrafo(String texto, Documento documento){
-		this.texto = texto;
-		this.documento = documento;
-	}
-
-	public String getTexto() {
+	public String getTexto(){
 		return texto;
 	}
-
-	public void setTexto(String texto) {
-		this.texto = texto;
+	
+	public void setTexto(String t){
+		this.texto = t;
 	}
-
-	public Documento getDocumento() {
+	
+	public Documento getDocumento(){
 		return documento;
 	}
-
-	public void setDocumento(Documento documento) {
-		this.documento = documento;
+	
+	public void setDocumento(Documento doc){
+		this.documento = doc;
 	}
+	
+	
 }

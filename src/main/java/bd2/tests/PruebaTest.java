@@ -1,13 +1,7 @@
 package bd2.tests;
 
-import java.util.Date;
-
-import bd2.model.Cursada;
-import bd2.model.Curso;
-import bd2.model.Idioma;
 import bd2.model.Leccion;
 import bd2.model.Prueba;
-import bd2.model.Usuario;
 import junit.framework.TestCase;
 
 public class PruebaTest extends TestCase {
