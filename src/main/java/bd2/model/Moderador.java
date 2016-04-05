@@ -50,6 +50,7 @@ public class Moderador {
 		}
 		[
 		*/
+		try{
 			if(this.idiomas.contains(t.getIdioma())){
 				Calendar cal = Calendar.getInstance();
 				Date fec = cal.getTime();
@@ -57,6 +58,9 @@ public class Moderador {
 				Evaluacion ev = new Evaluacion(fec, txt, t.getCompleta(), t, cali);
 				this.evaluaciones.add(ev);
 			}
+		}catch(Exception e){
+			e.getMessage();
+		}
 		
 	}
 	
