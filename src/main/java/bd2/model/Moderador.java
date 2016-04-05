@@ -1,5 +1,6 @@
 package bd2.model;
 import java.util.Date;
+import java.util.InputMismatchException;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Calendar;
@@ -58,8 +59,9 @@ public class Moderador {
 				Evaluacion ev = new Evaluacion(fec, txt, t.getCompleta(), t, cali);
 				this.evaluaciones.add(ev);
 			}
-		}catch(Exception e){
-			e.getMessage();
+		}catch(InputMismatchException e){
+			System.out.println(e.getMessage());
+			System.out.println("Evaluar documentos de idiomas que el moderador no maneja falla" );
 		}
 		
 	}
