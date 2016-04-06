@@ -33,7 +33,13 @@ public class Moderador {
 		return rep;
 	}
 	
-	public void evaluar(Traduccion t, String descripcion, Integer cali){
+	/**
+	 * @param t
+	 * @param descripcion
+	 * @param cali
+	 * @throws Exception
+	 */
+	public void evaluar(Traduccion t, String descripcion, Integer cali) throws Exception{
 		/*Registra	una	nueva evaluación (terminada) para la	Traduccion	recibida por parámetro en la colecciones de	evaluaciones.	El	puntaje	y	la	descripción	
 		de la evaluación son recibidos por parámetro. En este caso, se toma el día actual como fecha de la evaluación.	
 		
@@ -51,18 +57,17 @@ public class Moderador {
 		}
 		[
 		*/
-		try{
 			if(this.idiomas.contains(t.getIdioma())){
 				Calendar cal = Calendar.getInstance();
 				Date fec = cal.getTime();
 				String txt = t.getTexto();
 				Evaluacion ev = new Evaluacion(fec, txt, t.getCompleta(), t, cali);
 				this.evaluaciones.add(ev);
+			}else{
+				
+				throw new Exception("No se pueden evaluar traducciones de idiomas que el moderador no maneja.");
+				
 			}
-		}catch(InputMismatchException e){
-			System.out.println(e.getMessage());
-			System.out.println("Evaluar documentos de idiomas que el moderador no maneja falla" );
-		}
 		
 	}
 	

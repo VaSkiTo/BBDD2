@@ -30,6 +30,7 @@ public class Cursada {
 		this.inicio = fec;
 		this.usuario = u;
 		this.pruebas = new ArrayList<Prueba>();
+		this.usuario.agregarCursada(this);
 	}
 	
 	public boolean finalizada(){

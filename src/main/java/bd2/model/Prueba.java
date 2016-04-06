@@ -6,15 +6,18 @@ public class Prueba {
 	private Leccion leccion;
 	
 	
-	public Prueba(Leccion l, int p){
-		try{
+	public Prueba(Leccion l, int p) throws Exception{
+
 			if(p>=0 && p<=100){
 				this.setPuntaje(p);
 				this.leccion = l;
 			}
-		}catch(Exception e1){
-			System.out.println("El puntaje de una prueba debe ser un valor entre 0 y 100");
-		}
+			else {
+				
+				if (p < 0) throw new Exception("No se puede usar valores negativos como puntaje de una prueba.");
+				
+				else throw new Exception("No se puede usar valores mayores a 100 como puntaje de una prueba.");
+			}
 		
 	}
 	
@@ -22,9 +25,15 @@ public class Prueba {
 		return (this.getPuntaje() >= 60);
 	}
 	
-	public void setPuntaje(int p) {
+	public void setPuntaje(int p) throws Exception {
 		if(p>=0 && p<= 100){
 			this.puntaje = p;
+		}
+		else {
+			
+			if (p < 0) throw new Exception("No se puede usar valores negativos como puntaje de una prueba.");
+			
+			else throw new Exception("No se puede usar valores mayores a 100 como puntaje de una prueba.");
 		}
 	}
 	

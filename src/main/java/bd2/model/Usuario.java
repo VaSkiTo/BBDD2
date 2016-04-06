@@ -30,6 +30,7 @@ public class Usuario {
 		int max = 0;
 		Collection<Cursada> res = this.cursadasAprobadas(i);
 		Iterator<Cursada> iter = res.iterator();
+		
 		while(iter.hasNext()) {
 			Cursada element = iter.next();
 			if(element.getNivel() >= max){
@@ -46,15 +47,27 @@ public class Usuario {
 		 * son del idioma recibido por parámetro.
 		 */
 		ArrayList<Cursada> res = new ArrayList<Cursada>();
-		
+		/*
 		Iterator<Cursada> iter = this.cursadasRealizadas.iterator();
 		while(iter.hasNext()){
 			Cursada element = iter.next();
-			if(element.getIdioma() == i){
+			if(element.getIdioma().getNombre() == i.getNombre()){
 				//me quedo con las cursadas realizadas iguales al idioma buscado
 				res.add(element);
 			}
 		}
+		*/
+		
+		for(Cursada c : this.cursadasRealizadas){
+			
+			if ((c.getIdioma().getNombre() == i.getNombre())&& (c.finalizada())){
+				
+				res.add(c);
+				
+			}
+			
+		}
+		
 		
 		/*
 		for(int x=1; x == this.cursadasRealizadas.size(); x++){
