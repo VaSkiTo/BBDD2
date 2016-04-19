@@ -3,9 +3,14 @@ import java.util.Date;
 
 public class Tarea {
 
+	private int ID;
 	private java.util.Date fecha;
 	private String descripcion;
-	private Boolean completa = false;
+	private Boolean completa;
+	
+	public Tarea(){
+		
+	}
 	
 	public Tarea(java.util.Date fec, String desc, Boolean comp){
 		this.fecha = fec;
@@ -34,9 +39,20 @@ public class Tarea {
 		this.descripcion = descripcion;
 	}
 	
-	public Boolean getEstado(){
-		return this.completa;
+	public void setCompleta(Boolean est){
+		this.completa = est;
 	}
 	
+	public Boolean getCompleta(){
+		return this.completa;
+	}
+
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
+	}
 	
 }

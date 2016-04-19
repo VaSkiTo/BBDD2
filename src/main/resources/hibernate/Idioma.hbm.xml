@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="Idioma" table="Idioma">
+		<meta attribute="class-description">
+			Esta clase contiene los detalles de los idiomas
+		</meta>
+		<id name="idIdioma" type="int" column="id_Idioma">
+			<generator class="native"></generator>
+		</id>
+		<property name="nombre" column="nombre" type="string"/>
+		<property name="diccionario" column="diccionario" type="Diccionario"/>
+	</class>
+</hibernate-mapping>

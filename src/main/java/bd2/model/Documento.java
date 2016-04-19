@@ -4,10 +4,15 @@ import java.util.LinkedList;
 
 public class Documento {
 
+	private int ID;
 	private String nombre;
-	private Integer complejidad;
+	private int complejidad;
 	private Collection<Parrafo> parrafos;
 	private Idioma idioma;
+	
+	public Documento(){
+		
+	}
 	
 	public Documento(String nombre, Idioma i){
 		this.nombre = nombre;
@@ -41,12 +46,20 @@ public class Documento {
 		this.nombre = nom;
 	}
 
-	public Integer getComplejidad() {
+	public int getComplejidad() {
 		return complejidad;
 	}
 
-	public void setComplejidad(Integer complejidad) {
+	public void setComplejidad(int complejidad) {
 		this.complejidad = complejidad;
+	}
+
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
 	}
 	
 }

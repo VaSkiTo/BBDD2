@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="Documento" table="DOCUMENTO">
+		<meta attribute="class-description">
+			Esta clase contiene los detalles de los cursos
+		</meta>
+		<id name="idDocumento" type="int" column="id_Documento">
+			<generator class="native"></generator>
+		</id>
+		<property name="nombre" column="nombre" type="string"/>
+		<property name="complejidad" column="complejidad" type="int"/>
+		<property name="parrafos" column="parrafos" type="List"/>
+		<property name="idioma" column="idioma" type="Idioma"/>
+	</class>
+</hibernate-mapping>

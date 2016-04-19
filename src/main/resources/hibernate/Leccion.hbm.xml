@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="Leccion" table="LECCION">
+		<meta attribute="class-description">
+			Esta clase contiene los detalles de las lecciones
+		</meta>
+		<id name="idLeccion" type="int" column="id_Leccion">
+			<generator class="native"></generator>
+		</id>
+		<property name="nombre" column="nombre" type="string"/>
+	</class>
+</hibernate-mapping>

@@ -5,25 +5,17 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
-public class Cursada {
-
-	/*
-	getNivel(): Integer
-	getIdioma(): Idioma
-	getPruebas(): Prueba[*]
-	getCurso(): Curso
-	setCurso(Curso): void
-	getUsuario(): Usuario
-	setUsuario(Usuario): void
-	getInicio(): Date
-	setInicio(Date): void
-	*/
+public class Cursada {	
 	
-	
+	private int ID;
 	private java.util.Date inicio;
 	private Collection<Prueba> pruebas;
 	private Curso curso;
 	private Usuario usuario;
+	
+	public Cursada(){
+		
+	}
 	
 	public Cursada(Curso c, java.util.Date fec, Usuario u){
 		this.curso = c;
@@ -125,6 +117,14 @@ public class Cursada {
 
 	public void setUsuario(Usuario user) {
 		this.usuario = user;
+	}
+
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
 	}
 	
 	

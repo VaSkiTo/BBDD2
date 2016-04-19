@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class Diccionario {
 
-	
+	private int ID;
 	private Map<String, String> definiciones = new HashMap<String, String>();
 	private String edicion;
 	private Idioma idioma;
@@ -44,6 +44,14 @@ public class Diccionario {
 	
 	public void setEdicion(String edic){
 		this.edicion = edic;
+	}
+
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
 	}
 	
 }

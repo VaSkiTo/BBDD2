@@ -2,9 +2,13 @@ package bd2.model;
 
 public class Prueba {
 	
+	private int ID;
 	private int puntaje;
 	private Leccion leccion;
 	
+	public Prueba(){
+		
+	}
 	
 	public Prueba(Leccion l, int p) throws Exception{
 
@@ -47,6 +51,14 @@ public class Prueba {
 
 	public void setLeccion(Leccion leccion) {
 		this.leccion = leccion;
+	}
+
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
 	}
 	
 	

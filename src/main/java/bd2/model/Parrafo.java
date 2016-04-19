@@ -3,8 +3,13 @@ package bd2.model;
 
 public class Parrafo {
 
+	private int ID;
 	private String texto;
 	private Documento documento;
+	
+	public Parrafo(){
+		
+	}
 	
 	public Parrafo(String p, Documento doc){
 		this.texto = p;
@@ -25,6 +30,14 @@ public class Parrafo {
 	
 	public void setDocumento(Documento doc){
 		this.documento = doc;
+	}
+
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
 	}
 	
 	

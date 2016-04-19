@@ -2,18 +2,21 @@ package bd2.model;
 
 import java.util.Date;
 
-public class Evaluacion {
+public class Evaluacion extends Tarea {
 
-	
 	private int puntaje;
-	private Tarea tarea;
 	private Traduccion traduccion;
 	
+	public Evaluacion(){
+		
+	}
 	
 	public Evaluacion(Date fec, String txt, Boolean ok, Traduccion t, int i){
 		this.puntaje = i;
 		this.traduccion = t;
-		this.tarea = new Tarea(fec, txt, ok);
+		this.setCompleta(ok);
+		this.setDescripcion(txt);
+		this.setFecha(fec);
 		
 	}
 	
@@ -33,16 +36,5 @@ public class Evaluacion {
 		this.traduccion = t;
 	}
 	
-	public Date getFecha(){
-		return this.tarea.getFecha();
-	}
-	
-	public String getDescripcion(){
-		return this.tarea.getDescripcion();
-	}
-	
-	public Boolean getCompleta(){
-		return this.tarea.getEstado();
-	}
 	
 }

@@ -1,25 +1,30 @@
 package bd2.model;
 import java.util.Date;
 
-public class Traduccion {
+public class Traduccion extends Tarea {
 
 	private String texto;
 	private Parrafo parrafo;
 	private Idioma idioma;
-	private Tarea tarea;
+	
+	public Traduccion(){
+		
+	}
 	
 	public Traduccion(Date fecha, String desc, Boolean completa, String text, Parrafo parr){
 			
-		Tarea t = new Tarea(fecha, desc, completa);
-		this.tarea = t;
+		this.setFecha(fecha);
+		this.setDescripcion(desc);
+		this.setCompleta(completa);
 		this.setTexto(text);
 		this.parrafo = parr;
 	}
 	
 	public Traduccion(Date fecha, String desc, Boolean completa, String text, Parrafo parr, Idioma i){
 		
-		Tarea t = new Tarea(fecha, desc, completa);
-		this.tarea = t;
+		this.setFecha(fecha);
+		this.setDescripcion(desc);
+		this.setCompleta(completa);
 		this.setTexto(text);
 		this.parrafo = parr;
 		this.idioma = i;
@@ -50,16 +55,5 @@ public class Traduccion {
 		this.texto = texto;
 	}
 	
-	public Date getFecha(){
-		return this.tarea.getFecha();
-	}
-	
-	public String getDescripcion(){
-		return this.tarea.getDescripcion();
-	}
-
-	public Boolean getCompleta(){
-		return this.tarea.getEstado();
-	}
 	
 }

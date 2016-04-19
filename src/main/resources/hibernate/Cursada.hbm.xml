@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="Cursada" table="CURSADA">
+		<meta attribute="class-description">
+			Esta clase contiene la informacion de las cursadas
+		</meta>
+		<id name="idCursada" type="int" column="id_Cursada">
+			<generator class="native"/>
+		</id>
+		<property name="inicio" column="inicio" type="date"/>
+		<property name="pruebas" column="pruebas" type="List"></property>
+		<property name="curso" column="curso" type="Curso"></property>
+		<property name="usuario" column="usuario" type="Usuario"/>
+	</class>
+
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="Sitio" table="SITIO">
+		<meta attribute="class-description">
+			Esta clase contiene los detalles del sitio.
+		</meta>
+		<id name="idSitio" type="int" column="id_Sitio">
+			<generator class="native"></generator>
+		</id>
+		<property name="usuarios" column="usuarios" type="List"></property>
+		<property name="cursos" column="cursos" type="List"></property>
+		<property name="documentos" column="documentos" type="List"></property>
+	</class>
+</hibernate-mapping>

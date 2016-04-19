@@ -1,11 +1,17 @@
 package bd2.model;
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class Sitio {
 
-	private Collection<Usuario> usuarios;
-	private Collection<Curso> cursos;
-	private Collection<Documento> documentos;
+	private int ID;
+	private Collection<Usuario> usuarios = new ArrayList<Usuario>();
+	private Collection<Curso> cursos = new ArrayList<Curso>();
+	private Collection<Documento> documentos = new ArrayList<Documento>();
+	
+	public Sitio(){
+		
+	}
 	
 	public void registrarUsuario(Usuario user){
 		this.usuarios.add(user);
@@ -29,5 +35,13 @@ public class Sitio {
 	
 	public Collection<Documento> getDocumentos(){
 		return this.documentos;
+	}
+
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
 	}
 }

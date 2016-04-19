@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="Tarea" table="TAREA">
+		<meta attribute="class-description">
+			Esta clase contiene los detalles de las tareas y sus hijos
+		</meta>
+		<id name="idTarea" type="int" column="id_Tarea">
+			<generator class="native"></generator>
+		</id>
+		<property name="fecha" column="fecha" type="date"/>
+		<property name="descripcion" column="descripcion" type="string"/>
+		<property name="completa" column="completa" type="boolean"/>
+		<subclass name="Traduccion">
+			<property name="texto" column="texto" type="string"></property>
+			<property name="parrafo" column="parrafo" type="Idioma"></property>
+			<property name="idioma" column="idioma" type="Idioma"></property>
+		</subclass>
+		<subclass name="Evaluacion">
+			<property name="puntaje" column="puntaje" type="int"></property>
+			<property name="traduccion" column="traduccion" type="Traduccion"></property>
+		</subclass>
+	</class>
+</hibernate-mapping>

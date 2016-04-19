@@ -2,9 +2,13 @@ package bd2.model;
 
 public class Idioma {
 
+	private int ID;
 	private String nombre;
 	private Diccionario diccionario;
 	
+	public Idioma(){
+		
+	}
 	
 	public Idioma(String i){
 		this.setNombre(i);
@@ -25,6 +29,14 @@ public class Idioma {
 
 	public void setDiccionario(Diccionario diccionario) {
 		this.diccionario = diccionario;
+	}
+
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
 	}
 	
 	

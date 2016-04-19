@@ -1,25 +1,25 @@
 package bd2.model;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.Iterator;
-import java.util.LinkedList;
 
 public class Usuario {
 
+	private int ID;
 	private String email;
 	private String nombre;
 	private java.util.Date fechaDeCreacion;
-	private Collection<Traduccion> traducciones;
-	private Collection<Cursada> cursadasRealizadas;
+	private Collection<Traduccion> traducciones = new ArrayList<Traduccion>();
+	private Collection<Cursada> cursadasRealizadas = new ArrayList<Cursada>();
+	
+	public Usuario(){
+		
+	}
 	
 	public Usuario(String email, String nombre, java.util.Date hace1Anho){
 		this.setEmail(email);
 		this.setNombre(nombre);
 		this.setFechaDeCreacion(hace1Anho);
-		this.cursadasRealizadas = new ArrayList<Cursada>();
-		this.traducciones = new ArrayList<Traduccion>();
 	}
 	
 	public int nivel(Idioma i){

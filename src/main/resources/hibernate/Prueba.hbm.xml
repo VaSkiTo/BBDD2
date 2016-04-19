@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="Prueba" table="PRUEBA">
+		<meta attribute="class-description">
+			Esta clase contiene los detalles de las pruebas.
+		</meta>
+		<id name="idPrueba" type="int" column="id_Prueba">
+			<generator class="native"></generator>
+		</id>
+		<property name="puntaje" column="puntaje" type="int"></property>
+		<property name="leccion" column="leccion" type="Leccion"></property>
+	</class>
+</hibernate-mapping>

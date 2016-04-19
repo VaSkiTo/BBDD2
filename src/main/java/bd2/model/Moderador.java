@@ -1,20 +1,25 @@
 package bd2.model;
 import java.util.Date;
-import java.util.InputMismatchException;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Calendar;
 import java.util.Collection;
 
-public class Moderador {
+public class Moderador extends Usuario {
 
+	private int ID;
 	private int reputacion;
 	private Collection<Idioma> idiomas = new LinkedList<Idioma>();
 	private Collection<Evaluacion> evaluaciones = new LinkedList<Evaluacion>();
-	private Usuario user;
+	
+	public Moderador(){
+		
+	}
 	
 	public Moderador(String email, String nombre, Date fec){
-		this.user = new Usuario(email, nombre, fec);
+		this.setEmail(email);
+		this.setNombre(nombre);
+		this.setFechaDeCreacion(fec);
 		this.setReputacion(0);
 	}
 	
@@ -86,35 +91,6 @@ public class Moderador {
 	public boolean manejaIdioma(Idioma i){
 		return this.idiomas.contains(i);
 	}
-	
-
-	public String getEmail() {
-		return this.user.getEmail();
-	}
-
-	public void setEmail(String email) {
-		this.user.setEmail(email);
-	}
-
-	public String getNombre() {
-		return this.user.getNombre();
-	}
-
-	public void setNombre(String nombre) {
-		this.user.setNombre(nombre);
-	}
-
-	public Date getFechaDeCreacion() {
-		return this.user.getFechaDeCreacion();
-	}
-
-	public void setFechaDeCreacion(Date fechaDeCreacion) {
-		this.user.setFechaDeCreacion(fechaDeCreacion);
-	}
-	
-	public int nivel(Idioma i){
-		return this.user.nivel(i);
-	}
 
 	public int getReputacion() {
 		return reputacion;
@@ -122,6 +98,14 @@ public class Moderador {
 
 	public void setReputacion(int reputacion) {
 		this.reputacion = reputacion;
+	}
+
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
 	}
 	
 }

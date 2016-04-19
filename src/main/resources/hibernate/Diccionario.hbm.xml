@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="Diccionario" table="DICCIONARIO">
+		<meta attribute="class-description">
+			Esta clase contiene los detalles de los cursos
+		</meta>
+		<id name="idDiccionario" type="int" column="id_Diccionario">
+			<generator class="native"></generator>
+		</id>
+		<property name="definiciones" column="definiciones" type="Set"/>
+		<property name="edicion" column="edicion" type="string"/>
+		<property name="idioma" column="idioma" type="Idioma"/>
+	</class>
+</hibernate-mapping>

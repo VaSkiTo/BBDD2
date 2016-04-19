@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="Moderador" table="MODERADOR">
+		<meta attribute="class-description">
+			Esta clase contiene los detalles de los moderadores.
+		</meta>
+		<id name="idModerador" type="int" column="id_Moderador">
+			<generator class="native"></generator>
+		</id>
+		<property name="email" column="email" type="string"></property>
+		<property name="nombre" column="nombre" type="string"></property>
+		<property name="fechaDeCreacion" column="fecha_de_creacion" type="date"></property>
+		<property name="traducciones" column="traducciones" type="List"></property>
+		<property name="cursadasRealizadas" column="cursadas_realizadas" type="List"></property>
+		<property name="reputacion" column="reputacion" type="int"/>
+		<property name="idiomas" column="idiomas" type="List"/>
+		<property name="evaluaciones" column="evaluaciones" type="List"/>
+	</class>
+</hibernate-mapping>

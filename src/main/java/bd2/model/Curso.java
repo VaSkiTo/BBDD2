@@ -5,10 +5,15 @@ import java.util.LinkedList;
 
 public class Curso {
 
+	private int ID;
 	private String nombre;
 	private int nivel;
 	private Collection<Leccion> lecciones;
 	private Idioma idioma;
+	
+	public Curso(){
+		
+	}
 	
 	public Curso (String name, Idioma idiom, int i){
 		this.setIdioma(idiom);
@@ -40,6 +45,14 @@ public class Curso {
 	}
 	public void agregarLeccion(Leccion lecciones) {
 		this.lecciones.add(lecciones);
+	}
+
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
 	}
 	
 }

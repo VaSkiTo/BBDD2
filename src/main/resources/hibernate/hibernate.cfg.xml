@@ -21,6 +21,18 @@
 		</property>
 
 		<!-- Colocar las referencias a los archivos de mapping en este punto -->
-
+		
+		<mapping resource="/src/main/resources/hibernate/Cursada.hbm.xml"/>
+		<mapping resource="/src/main/resources/hibernate/Curso.hbm.xml"/>
+		<mapping resource="/src/main/resources/hibernate/Diccionario.hbm.xml"/>
+		<mapping resource="/src/main/resources/hibernate/Documento.hbm.xml"/>
+		<mapping resource="/src/main/resources/hibernate/Idioma.hbm.xml"/>
+		<mapping resource="/src/main/resources/hibernate/Leccion.hbm.xml"/>
+		<mapping resource="/src/main/resources/hibernate/Moderador.hbm.xml"/>
+		<mapping resource="/src/main/resources/hibernate/Parrafo.hbm.xml"/>
+		<mapping resource="/src/main/resources/hibernate/Prueba.hbm.xml"/>
+		<mapping resource="/src/main/resources/hibernate/Sitio.hbm.xml"/>
+		<mapping resource="/src/main/resources/hibernate/Tarea.hbm.xml"/>
+		<mapping resource="/src/main/resources/hibernate/Usuario.hbm.xml"/>
 	</session-factory>
 </hibernate-configuration>
