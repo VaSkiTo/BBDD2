@@ -14,14 +14,18 @@
 		<property name="fecha" column="fecha" type="date"/>
 		<property name="descripcion" column="descripcion" type="string"/>
 		<property name="completa" column="completa" type="boolean"/>
-		<subclass name="Traduccion">
+		
+		<discriminator column="DISCRIMINATOR" type="string"></discriminator>
+		
+		<subclass name="Traduccion" extends="Tarea" discriminator-value="TC">
 			<property name="texto" column="texto" type="string"></property>
-			<property name="parrafo" column="parrafo" type="Idioma"></property>
-			<property name="idioma" column="idioma" type="Idioma"></property>
+			<one-to-one name="parrafo" class="Parrafo" cascade="all"></one-to-one>
+			<one-to-one name="idioma" class="Idioma" cascade="all"></one-to-one>
 		</subclass>
-		<subclass name="Evaluacion">
+		
+		<subclass name="Evaluacion" extends="Tarea" discriminator-value="EV">
 			<property name="puntaje" column="puntaje" type="int"></property>
-			<property name="traduccion" column="traduccion" type="Traduccion"></property>
+			<one-to-one name="traduccion" class="Traduccion" cascade="all"><</one-to-one>
 		</subclass>
 	</class>
 </hibernate-mapping>

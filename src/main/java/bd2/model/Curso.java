@@ -1,14 +1,13 @@
 package bd2.model;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.LinkedList;
 
 public class Curso {
 
 	private int ID;
 	private String nombre;
 	private int nivel;
-	private Collection<Leccion> lecciones;
+	private Collection<Leccion> lecciones = new ArrayList<Leccion>();
 	private Idioma idioma;
 	
 	public Curso(){
@@ -19,7 +18,6 @@ public class Curso {
 		this.setIdioma(idiom);
 		this.setNivel(i);
 		this.setNombre(name);
-		this.lecciones = new ArrayList<Leccion>();
 	}
 	
 	public String getNombre() {

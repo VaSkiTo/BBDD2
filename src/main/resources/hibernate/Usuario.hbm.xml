@@ -4,17 +4,41 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="Usuario" table="USUARIO">
+	<class name="Usuario" table="USUARIO" discriminator-value="U">
 		<meta attribute="class-description">
 			Esta clase contiene los detalles de los usuarios.
 		</meta>
 		<id name="idUsuario" type="int" column="id_Usuario">
 			<generator class="native"></generator>
 		</id>
+		
+		<discriminator column="DISCRIMINATOR" type="string"/>
 		<property name="email" column="email" type="string"></property>
 		<property name="nombre" column="nombre" type="string"></property>
 		<property name="fechaDeCreacion" column="fecha_de_creacion" type="date"></property>
-		<property name="traducciones" column="traducciones" type="List"></property>
-		<property name="cursadasRealizadas" column="cursadas_realizadas" type="List"></property>
+		<list name="traducciones" cascade="all">
+			<key column="idTraducciones"/>
+			<index column="idTraducciones"/>
+			<one-to-many class="Traduccion"/>
+		</list>
+		<list name="cursadasRealizadas" cascade="all">
+			<key column="idCursadas"></key>
+			<index column="idCursadas"></index>
+			<one-to-many class="Cursada"></one-to-many>
+		</list>
+		
+		<joined-subclass name="Moderador" extends="Usuario" discriminator-value="M">
+			<list name="idiomas" cascade="all">
+				<key column="idIdioma"/>
+				<index column="idIdioma"/>
+				<one-to-many class="Idioma"></one-to-many>
+			</list>
+			<list name="evaluaciones" cascade="all">
+				<key column="idEvaluaciones"></key>
+				<index column="idEvaluaciones"></index>
+				<one-to-many class="Evaluaciones"></one-to-many>
+			</list>
+		</subclass>
+		
 	</class>
 </hibernate-mapping>

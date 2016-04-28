@@ -8,7 +8,6 @@ import java.util.Collection;
 public class Moderador extends Usuario {
 
 	private int ID;
-	private int reputacion;
 	private Collection<Idioma> idiomas = new LinkedList<Idioma>();
 	private Collection<Evaluacion> evaluaciones = new LinkedList<Evaluacion>();
 	
@@ -20,7 +19,6 @@ public class Moderador extends Usuario {
 		this.setEmail(email);
 		this.setNombre(nombre);
 		this.setFechaDeCreacion(fec);
-		this.setReputacion(0);
 	}
 	
 	public int reputacion(){
@@ -62,7 +60,7 @@ public class Moderador extends Usuario {
 		}
 		[
 		*/
-			if(this.idiomas.contains(t.getIdioma())){
+			if(this.idiomas.contains(t.getIdioma()) && this.idiomas.contains(t.getParrafo().getDocumento().getIdioma())){
 				Calendar cal = Calendar.getInstance();
 				Date fec = cal.getTime();
 				String txt = t.getTexto();
@@ -90,14 +88,6 @@ public class Moderador extends Usuario {
 	
 	public boolean manejaIdioma(Idioma i){
 		return this.idiomas.contains(i);
-	}
-
-	public int getReputacion() {
-		return reputacion;
-	}
-
-	public void setReputacion(int reputacion) {
-		this.reputacion = reputacion;
 	}
 
 	public int getID() {

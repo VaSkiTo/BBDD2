@@ -13,7 +13,13 @@
 		</id>
 		<property name="nombre" column="nombre" type="string"/>
 		<property name="complejidad" column="complejidad" type="int"/>
-		<property name="parrafos" column="parrafos" type="List"/>
-		<property name="idioma" column="idioma" type="Idioma"/>
+		<list name="parrafos" cascade="all">
+			<key column="idParrafos"/>
+			<index column="idParrafos"/>
+			<one-to-many class="Parrafos"/>
+		</list>
+		<one-to-one name="idioma" class="Idioma" cascade="all"></one-to-one>
+		<many-to-one name="idioma" class="Idioma" cascade="all">
+		</many-to-one>
 	</class>
 </hibernate-mapping>

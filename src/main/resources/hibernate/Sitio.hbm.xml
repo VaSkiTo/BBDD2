@@ -11,8 +11,21 @@
 		<id name="idSitio" type="int" column="id_Sitio">
 			<generator class="native"></generator>
 		</id>
-		<property name="usuarios" column="usuarios" type="List"></property>
-		<property name="cursos" column="cursos" type="List"></property>
-		<property name="documentos" column="documentos" type="List"></property>
+		<list name="usuarios" cascade="all">
+			<key column="idUsuarios"></key>
+			<index column="idUsuarios"></index>
+			<one-to-many class="Usuario"/>
+		</list>
+		<list name="cursos" cascade="all">
+			<key column="idCursos"></key>
+			<index column="idCursos">
+			</index>
+			<one-to-many clas="Curso"></one-to-many>
+		</list>
+		<list name="documentos" cascade="all">
+			<key column="idDocumentos"/>
+			<index column="idDocumentos"/>
+			<one-to-many class="Documento"/>
+		</list>
 	</class>
 </hibernate-mapping>

@@ -7,7 +7,7 @@ public class Documento {
 	private int ID;
 	private String nombre;
 	private int complejidad;
-	private Collection<Parrafo> parrafos;
+	private Collection<Parrafo> parrafos = new LinkedList<Parrafo>();
 	private Idioma idioma;
 	
 	public Documento(){
@@ -17,7 +17,6 @@ public class Documento {
 	public Documento(String nombre, Idioma i){
 		this.nombre = nombre;
 		this.idioma = i;
-		this.parrafos = new LinkedList<Parrafo>();
 	}
 	
 	public Idioma getIdioma(){

@@ -9,7 +9,7 @@ public class Cursada {
 	
 	private int ID;
 	private java.util.Date inicio;
-	private Collection<Prueba> pruebas;
+	private Collection<Prueba> pruebas = new ArrayList<Prueba>();
 	private Curso curso;
 	private Usuario usuario;
 	
@@ -21,7 +21,6 @@ public class Cursada {
 		this.curso = c;
 		this.inicio = fec;
 		this.usuario = u;
-		this.pruebas = new ArrayList<Prueba>();
 		this.usuario.agregarCursada(this);
 	}
 	

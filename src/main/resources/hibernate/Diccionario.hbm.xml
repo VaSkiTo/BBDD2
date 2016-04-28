@@ -11,8 +11,13 @@
 		<id name="idDiccionario" type="int" column="id_Diccionario">
 			<generator class="native"></generator>
 		</id>
-		<property name="definiciones" column="definiciones" type="Set"/>
+        <map name="definiciones">
+    		<key column="idDiccionario"/>
+    		<map-key column="clave" type="string"></map-key>
+    		<element column="definicion" type="string"></element>
+		</map>
 		<property name="edicion" column="edicion" type="string"/>
-		<property name="idioma" column="idioma" type="Idioma"/>
+		<one-to-one name="idioma" class="Idioma" cascade="all">
+			</one-to-one>
 	</class>
 </hibernate-mapping>

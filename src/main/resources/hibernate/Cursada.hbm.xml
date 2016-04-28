@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE hibernate-configuration SYSTEM 
-"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="bd2.model.Cursada" table="CURSADA">
+	<class name="Cursada" table="CURSADA">
 		<meta attribute="class-description">
 			Esta clase contiene la informacion de las cursadas
 		</meta>
@@ -11,9 +12,15 @@
 			<generator class="native"/>
 		</id>
 		<property name="inicio" column="inicio" type="date"/>
-		<property name="pruebas" column="pruebas" type="List"></property>
-		<property name="curso" column="curso" type="Curso"></property>
-		<property name="usuario" column="usuario" type="Usuario"/>
+		<list name="pruebas" cascade="all">
+			<key column="idPrueba"/>
+			<index column="idPrueba"/>
+			<one-to-many class="Prueba"/>
+		</list>
+		<many-to-one name="curso" class="Curso"
+			cascade="all"></many-to-many>
+		<many-to-many name="usuario" class="Usuario"
+			cascade="all"></many-to-many>
 	</class>
 
 </hibernate-mapping>

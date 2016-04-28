@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE hibernate-configuration SYSTEM 
-"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<!DOCTYPE hibernate-configuration PUBLIC
+ "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+ "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 
 <hibernate-configuration>
 	<session-factory>
@@ -28,7 +29,6 @@
 		<mapping resource="hibernate/Documento.hbm.xml"/>
 		<mapping resource="hibernate/Idioma.hbm.xml"/>
 		<mapping resource="hibernate/Leccion.hbm.xml"/>
-		<mapping resource="hibernate/Moderador.hbm.xml"/>
 		<mapping resource="hibernate/Parrafo.hbm.xml"/>
 		<mapping resource="hibernate/Prueba.hbm.xml"/>
 		<mapping resource="hibernate/Sitio.hbm.xml"/>
