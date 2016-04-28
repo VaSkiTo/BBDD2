@@ -12,7 +12,7 @@
 			<generator class="native"></generator>
 		</id>
 		<property name="nombre" column="nombre" type="string"/>
-		<one-to-one name="diccionario" class="Diccionario"
-			cascade="all"></one-to-one>
+		<many-to-one name="diccionario" class="Diccionario"
+			cascade="all" column="idDiccionario" unique="true"></many-to-one>
 	</class>
 </hibernate-mapping>

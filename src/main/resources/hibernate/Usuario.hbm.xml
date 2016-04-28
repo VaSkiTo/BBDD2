@@ -24,7 +24,7 @@
 		<list name="cursadasRealizadas" cascade="all">
 			<key column="idCursadas"></key>
 			<index column="idCursadas"></index>
-			<one-to-many class="Cursada"></one-to-many>
+			<many-to-many class="Cursada" column="idCursada"></many-to-many>
 		</list>
 		
 		<joined-subclass name="Moderador" extends="Usuario" discriminator-value="M">

@@ -17,7 +17,7 @@
     		<element column="definicion" type="string"></element>
 		</map>
 		<property name="edicion" column="edicion" type="string"/>
-		<one-to-one name="idioma" class="Idioma" cascade="all">
+		<one-to-one name="idioma" property-ref="diccionario">
 			</one-to-one>
 	</class>
 </hibernate-mapping>

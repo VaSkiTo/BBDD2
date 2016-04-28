@@ -12,6 +12,6 @@
 			<generator class="native"></generator>
 		</id>
 		<property name="puntaje" column="puntaje" type="int"></property>
-		<one-to-one name="leccion" class="Leccion" cascade="all"></one-to-one>
+		<many-to-one name="leccion" cascade="all" column="idLeccion" unique="true"></one-to-one>
 	</class>
 </hibernate-mapping>

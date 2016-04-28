@@ -13,14 +13,13 @@
 		</id>
 		<property name="inicio" column="inicio" type="date"/>
 		<list name="pruebas" cascade="all">
-			<key column="idPrueba"/>
+			<key column="idCursada"/>
 			<index column="idPrueba"/>
 			<one-to-many class="Prueba"/>
 		</list>
 		<many-to-one name="curso" class="Curso"
-			cascade="all"></many-to-many>
-		<many-to-many name="usuario" class="Usuario"
-			cascade="all"></many-to-many>
+			cascade="all" unique="true"></many-to-one>
+		<many-to-many class="Usuario" column="idUsuario"></many-to-many>
 	</class>
 
 </hibernate-mapping>

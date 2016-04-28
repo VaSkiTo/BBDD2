@@ -12,9 +12,9 @@
 			<generator class="native"></generator>
 		</id>
 		<one-to-one name="idioma" class="Idioma"
-			cascade="all"></one-to-one>
+			cascade="all" unique="true" column="idIdioma"></one-to-one>
 		<list name="lecciones" cascade="all">
-			<key column="idLeccion"/>
+			<key column="idCurso"/>
 			<index column="idLeccion"/>
 			<one-to-many class="Leccion"/>
 		</list>
