@@ -2,7 +2,7 @@ package bd2.model;
 
 public class Prueba {
 	
-	private int ID;
+	private long idPrueba;
 	private int puntaje;
 	private Leccion leccion;
 	
@@ -53,13 +53,15 @@ public class Prueba {
 		this.leccion = leccion;
 	}
 
-	public int getID() {
-		return ID;
+	public long getIdPrueba() {
+		return idPrueba;
 	}
 
-	public void setID(int iD) {
-		ID = iD;
+	public void setIdPrueba(long idPrueba) {
+		this.idPrueba = idPrueba;
 	}
+
+	
 	
 	
 }

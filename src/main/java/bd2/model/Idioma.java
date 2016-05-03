@@ -2,7 +2,7 @@ package bd2.model;
 
 public class Idioma {
 
-	private int ID;
+	private long idIdioma;
 	private String nombre;
 	private Diccionario diccionario;
 	
@@ -31,13 +31,15 @@ public class Idioma {
 		this.diccionario = diccionario;
 	}
 
-	public int getID() {
-		return ID;
+	public long getIdIdioma() {
+		return idIdioma;
 	}
 
-	public void setID(int iD) {
-		ID = iD;
+	public void setIdIdioma(long idIdioma) {
+		this.idIdioma = idIdioma;
 	}
+
+	
 	
 	
 }

@@ -86,6 +86,8 @@ public class CursadaTest extends TestCase {
 		assertTrue(encurso.finalizada());
 		encurso.agregarPrueba(new Prueba(vocabularioBasico, 88));
 		assertTrue(encurso.finalizada());
+		
+		
 	}
 
 }

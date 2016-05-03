@@ -4,14 +4,11 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="Prueba" table="PRUEBA">
-		<meta attribute="class-description">
-			Esta clase contiene los detalles de las pruebas.
-		</meta>
-		<id name="idPrueba" type="int" column="id_Prueba">
-			<generator class="native"></generator>
+	<class name="bd2.model.Prueba" table="PRUEBA">
+		<id name="idPrueba" type="long" column="ID_PRUEBA" >
+			<generator class="native" />
 		</id>
 		<property name="puntaje" column="puntaje" type="int"></property>
-		<many-to-one name="leccion" cascade="all" column="idLeccion" unique="true"></one-to-one>
+		<!-- <many-to-one name="leccion" cascade="all" column="idLeccion" unique="true"></many-to-one> -->
 	</class>
 </hibernate-mapping>

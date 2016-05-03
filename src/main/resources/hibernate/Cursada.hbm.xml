@@ -4,22 +4,25 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="Cursada" table="CURSADA">
-		<meta attribute="class-description">
-			Esta clase contiene la informacion de las cursadas
-		</meta>
-		<id name="idCursada" type="int" column="id_Cursada">
-			<generator class="native"/>
+	<class name="bd2.model.Cursada" table="CURSADA">
+		<id name="idCursada" type="long" column="ID_CURSADA" >
+			<generator class="native" />
 		</id>
-		<property name="inicio" column="inicio" type="date"/>
+
+		<property name="inicio" column="inicio" type="date" />
+		
 		<list name="pruebas" cascade="all">
-			<key column="idCursada"/>
-			<index column="idPrueba"/>
-			<one-to-many class="Prueba"/>
+			<key column="id" />
+			<index column="idCursada" />
+			<one-to-many class="bd2.model.Prueba" />
 		</list>
-		<many-to-one name="curso" class="Curso"
-			cascade="all" unique="true"></many-to-one>
-		<many-to-many class="Usuario" column="idUsuario"></many-to-many>
+		 
+		<many-to-one name="curso" class="bd2.model.Curso" cascade="all"
+			unique="true">
+		</many-to-one>
+	  
+		<many-to-one name="usuario" class="bd2.model.Usuario" column="idUsuario"></many-to-one>
+	 
 	</class>
 
 </hibernate-mapping>

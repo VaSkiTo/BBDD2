@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 public class Usuario {
 
-	private int ID;
+	private long idUsuario;
 	private String email;
 	private String nombre;
 	private java.util.Date fechaDeCreacion;
@@ -120,5 +120,24 @@ public class Usuario {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
+	public long getIdUsuario() {
+		return idUsuario;
+	}
+
+	public void setIdUsuario(long idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+
+	public void setTraducciones(Collection<Traduccion> traducciones) {
+		this.traducciones = traducciones;
+	}
+
+	public void setCursadasRealizadas(Collection<Cursada> cursadasRealizadas) {
+		this.cursadasRealizadas = cursadasRealizadas;
+	}
+	
+	
+	
 	
 }

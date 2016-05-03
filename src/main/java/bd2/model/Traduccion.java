@@ -54,6 +54,10 @@ public class Traduccion extends Tarea {
 	public void setTexto(String texto) {
 		this.texto = texto;
 	}
+
+	public void setParrafo(Parrafo parrafo) {
+		this.parrafo = parrafo;
+	}
 	
 	
 }

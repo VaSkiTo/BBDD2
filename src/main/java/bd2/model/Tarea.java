@@ -3,7 +3,7 @@ import java.util.Date;
 
 public class Tarea {
 
-	private int ID;
+	private long idTarea;
 	private java.util.Date fecha;
 	private String descripcion;
 	private Boolean completa;
@@ -47,12 +47,14 @@ public class Tarea {
 		return this.completa;
 	}
 
-	public int getID() {
-		return ID;
+	public long getIdTarea() {
+		return idTarea;
 	}
 
-	public void setID(int iD) {
-		ID = iD;
+	public void setIdTarea(long idTarea) {
+		this.idTarea = idTarea;
 	}
+
+	
 	
 }

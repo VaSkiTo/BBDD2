@@ -4,41 +4,38 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="Usuario" table="USUARIO" discriminator-value="U">
-		<meta attribute="class-description">
-			Esta clase contiene los detalles de los usuarios.
-		</meta>
-		<id name="idUsuario" type="int" column="id_Usuario">
-			<generator class="native"></generator>
+	<class name="bd2.model.Usuario" table="USUARIO" discriminator-value="U">
+		<id name="idUsuario" type="long" column="ID_USUARIO" >
+			<generator class="native" />
 		</id>
 		
-		<discriminator column="DISCRIMINATOR" type="string"/>
 		<property name="email" column="email" type="string"></property>
 		<property name="nombre" column="nombre" type="string"></property>
 		<property name="fechaDeCreacion" column="fecha_de_creacion" type="date"></property>
+		
 		<list name="traducciones" cascade="all">
-			<key column="idTraducciones"/>
-			<index column="idTraducciones"/>
-			<one-to-many class="Traduccion"/>
-		</list>
-		<list name="cursadasRealizadas" cascade="all">
-			<key column="idCursadas"></key>
-			<index column="idCursadas"></index>
-			<many-to-many class="Cursada" column="idCursada"></many-to-many>
+			<key column="idUsuario"/>
+			<index column="ID_USUARIO"/>
+			<one-to-many class="bd2.model.Traduccion"/>
 		</list>
 		
-		<joined-subclass name="Moderador" extends="Usuario" discriminator-value="M">
+		
+		<joined-subclass name="bd2.model.Moderador" table="MODERADOR">
+		
+			<key column="ID_USUARIO"/>
 			<list name="idiomas" cascade="all">
-				<key column="idIdioma"/>
-				<index column="idIdioma"/>
-				<one-to-many class="Idioma"></one-to-many>
+				<key column="idUsuario"/>
+				<index column="ID_USUARIO"/>
+				<one-to-many class="bd2.model.Idioma"></one-to-many>
 			</list>
 			<list name="evaluaciones" cascade="all">
-				<key column="idEvaluaciones"></key>
-				<index column="idEvaluaciones"></index>
-				<one-to-many class="Evaluaciones"></one-to-many>
+				<key column="idUsuario"></key>
+				<index column="ID_USUARIO"></index>
+				<one-to-many class="bd2.model.Evaluacion"></one-to-many>
 			</list>
-		</subclass>
+			
+		</joined-subclass>
+		
 		
 	</class>
 </hibernate-mapping>

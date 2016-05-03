@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class Diccionario {
 
-	private int ID;
+	private long idDiccionario;
 	private Map<String, String> definiciones = new HashMap<String, String>();
 	private String edicion;
 	private Idioma idioma;
@@ -46,12 +46,18 @@ public class Diccionario {
 		this.edicion = edic;
 	}
 
-	public int getID() {
-		return ID;
+	public long getIdDiccionario() {
+		return idDiccionario;
 	}
 
-	public void setID(int iD) {
-		ID = iD;
+	public void setIdDiccionario(long idDiccionario) {
+		this.idDiccionario = idDiccionario;
 	}
+
+	public void setDefiniciones(Map<String, String> definiciones) {
+		this.definiciones = definiciones;
+	}
+
+	
 	
 }

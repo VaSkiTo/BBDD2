@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class Documento {
 
-	private int ID;
+	private long idDocumento;
 	private String nombre;
 	private int complejidad;
 	private Collection<Parrafo> parrafos = new LinkedList<Parrafo>();
@@ -53,12 +53,18 @@ public class Documento {
 		this.complejidad = complejidad;
 	}
 
-	public int getID() {
-		return ID;
+	public long getIdDocumento() {
+		return idDocumento;
 	}
 
-	public void setID(int iD) {
-		ID = iD;
+	public void setIdDocumento(long idDocumento) {
+		this.idDocumento = idDocumento;
 	}
+
+	public void setParrafos(Collection<Parrafo> parrafos) {
+		this.parrafos = parrafos;
+	}
+
+	
 	
 }

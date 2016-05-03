@@ -4,7 +4,7 @@ import java.util.Collection;
 
 public class Curso {
 
-	private int ID;
+	private long idCurso;
 	private String nombre;
 	private int nivel;
 	private Collection<Leccion> lecciones = new ArrayList<Leccion>();
@@ -45,12 +45,18 @@ public class Curso {
 		this.lecciones.add(lecciones);
 	}
 
-	public int getID() {
-		return ID;
+	public long getIdCurso() {
+		return idCurso;
 	}
 
-	public void setID(int iD) {
-		ID = iD;
+	public void setIdCurso(long idCurso) {
+		this.idCurso = idCurso;
 	}
+
+	public void setLecciones(Collection<Leccion> lecciones) {
+		this.lecciones = lecciones;
+	}
+
+	
 	
 }

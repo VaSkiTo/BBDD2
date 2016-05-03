@@ -4,7 +4,7 @@ import java.util.Collection;
 
 public class Sitio {
 
-	private int ID;
+	private long idSitio;
 	private Collection<Usuario> usuarios = new ArrayList<Usuario>();
 	private Collection<Curso> cursos = new ArrayList<Curso>();
 	private Collection<Documento> documentos = new ArrayList<Documento>();
@@ -37,11 +37,25 @@ public class Sitio {
 		return this.documentos;
 	}
 
-	public int getID() {
-		return ID;
+	public long getIdSitio() {
+		return idSitio;
 	}
 
-	public void setID(int iD) {
-		ID = iD;
+	public void setIdSitio(long idSitio) {
+		this.idSitio = idSitio;
 	}
+
+	public void setUsuarios(Collection<Usuario> usuarios) {
+		this.usuarios = usuarios;
+	}
+
+	public void setCursos(Collection<Curso> cursos) {
+		this.cursos = cursos;
+	}
+
+	public void setDocumentos(Collection<Documento> documentos) {
+		this.documentos = documentos;
+	}
+
+	
 }

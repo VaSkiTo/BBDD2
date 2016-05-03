@@ -4,20 +4,19 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="Curso" table="CURSO">
-		<meta attribute="class-description">
-			Esta clase contiene los detalles de los cursos
-		</meta>
-		<id name="idCurso" type="int" column="id_Curso">
-			<generator class="native"></generator>
+	<class name="bd2.model.Curso" table="CURSO">
+		<id name="idCurso" type="long" column="ID_CURSO" >
+			<generator class="native" />
 		</id>
-		<one-to-one name="idioma" class="Idioma"
-			cascade="all" unique="true" column="idIdioma"></one-to-one>
+		
+		<one-to-one name="idioma" class="bd2.model.Idioma" cascade="all"></one-to-one>
+		<!-- 
 		<list name="lecciones" cascade="all">
 			<key column="idCurso"/>
 			<index column="idLeccion"/>
 			<one-to-many class="Leccion"/>
 		</list>
+		 -->
 		<property name="nivel" column="nivel" type="int"/>
 		<property name="nombre" column="nombre" type="string"/>
 	</class>

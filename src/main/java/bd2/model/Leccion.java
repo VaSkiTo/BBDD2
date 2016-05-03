@@ -2,7 +2,7 @@ package bd2.model;
 
 public class Leccion {
 
-	private int ID;
+	private long idLeccion;
 	private String nombre;
 
 	public Leccion(){
@@ -21,12 +21,14 @@ public class Leccion {
 		this.nombre = nombre;
 	}
 
-	public int getID() {
-		return ID;
+	public long getIdLeccion() {
+		return idLeccion;
 	}
 
-	public void setID(int iD) {
-		ID = iD;
+	public void setIdLeccion(long idLeccion) {
+		this.idLeccion = idLeccion;
 	}
+
+	
 	
 }

@@ -4,12 +4,9 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="Diccionario" table="DICCIONARIO">
-		<meta attribute="class-description">
-			Esta clase contiene los detalles de los cursos
-		</meta>
-		<id name="idDiccionario" type="int" column="id_Diccionario">
-			<generator class="native"></generator>
+	<class name="bd2.model.Diccionario" table="DICCIONARIO">
+		<id name="idDiccionario" type="long" column="ID_DICCIONARIO" >
+			<generator class="native" />
 		</id>
         <map name="definiciones">
     		<key column="idDiccionario"/>
@@ -17,7 +14,6 @@
     		<element column="definicion" type="string"></element>
 		</map>
 		<property name="edicion" column="edicion" type="string"/>
-		<one-to-one name="idioma" property-ref="diccionario">
-			</one-to-one>
+		<one-to-one name="idioma" class="bd2.model.Idioma"></one-to-one>
 	</class>
 </hibernate-mapping>

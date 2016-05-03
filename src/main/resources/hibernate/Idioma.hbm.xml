@@ -4,15 +4,13 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="Idioma" table="Idioma">
-		<meta attribute="class-description">
-			Esta clase contiene los detalles de los idiomas
-		</meta>
-		<id name="idIdioma" type="int" column="id_Idioma">
-			<generator class="native"></generator>
+	<class name="bd2.model.Idioma" table="IDIOMA">
+		<id name="idIdioma" type="long" column="ID_IDIOMA" >
+			<generator class="native" />
 		</id>
 		<property name="nombre" column="nombre" type="string"/>
+		<!-- 
 		<many-to-one name="diccionario" class="Diccionario"
-			cascade="all" column="idDiccionario" unique="true"></many-to-one>
+			cascade="all" column="idDiccionario" unique="true"></many-to-one>  -->
 	</class>
 </hibernate-mapping>

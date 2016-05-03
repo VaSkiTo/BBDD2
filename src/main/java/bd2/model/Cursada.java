@@ -7,7 +7,7 @@ import java.util.Iterator;
 
 public class Cursada {	
 	
-	private int ID;
+	private long idCursada;
 	private java.util.Date inicio;
 	private Collection<Prueba> pruebas = new ArrayList<Prueba>();
 	private Curso curso;
@@ -29,11 +29,14 @@ public class Cursada {
 		 * 	Retorna un booleano indicando si la cursada esta finalizada. Esto significa que	 existe	 al	
 			menos una prueba (aprobada) para cada lección del curso correspondiente.	
 		 */
-		
-		boolean ok = false;
-		int aprobadas = 0;int cantLecc = this.curso.getLecciones().size();
+
+		int aprobadas = 0;
+		int cantLecc = this.curso.getLecciones().size();
 		int i=0;//uso la variable i para contabilizar cuantas lecciones checkie
 		Iterator<Prueba> iter = this.pruebas.iterator();
+		
+		/*
+		
 		while ( i <= cantLecc){ //mientras me falten lecciones por recorrer, recorro.
 			if(iter.hasNext()){
 				if(iter.next().aprobada()){ //si la leccion esta aprobada, 
@@ -42,8 +45,14 @@ public class Cursada {
 			}
 			i++;
 		}
-		if(aprobadas == cantLecc){ ok = true;} //si tengo igual de lecciones del curso
-		return ok;							   //como pruebas aprobadas, finalizo la cursada
+		
+		System.out.println("Juani: "+ aprobadas);
+		*/
+		
+		System.out.println(this.leccionesAprobadas().size()+" >= "+cantLecc);
+		
+		return (this.leccionesAprobadas().size() >= cantLecc);						   //como pruebas aprobadas, finalizo la cursada
+		
 		
 		/*
 		 *Otra solucion podria ser llamar al metodo leccionesAprobadas y comparar el size
@@ -76,6 +85,7 @@ public class Cursada {
 		 */
 		
 		Collection<Leccion> res = new ArrayList<Leccion>();
+		
 		Iterator<Prueba> iter = this.pruebas.iterator();
 		while(iter.hasNext()){
 			Prueba element = iter.next();
@@ -83,7 +93,9 @@ public class Cursada {
 				res.add(element.getLeccion());
 			}
 		}
-		return res;		
+		
+		return res;
+		
 	}
 	
 	public int getNivel(){
@@ -118,13 +130,18 @@ public class Cursada {
 		this.usuario = user;
 	}
 
-	public int getID() {
-		return ID;
+	public long getIdCursada() {
+		return idCursada;
 	}
 
-	public void setID(int iD) {
-		ID = iD;
+	public void setIdCursada(long idCursada) {
+		this.idCursada = idCursada;
 	}
+
+	public void setPruebas(Collection<Prueba> pruebas) {
+		this.pruebas = pruebas;
+	}
+
 	
 	
 }

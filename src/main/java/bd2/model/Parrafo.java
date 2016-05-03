@@ -3,7 +3,7 @@ package bd2.model;
 
 public class Parrafo {
 
-	private int ID;
+	private long idParrafo;
 	private String texto;
 	private Documento documento;
 	
@@ -32,13 +32,15 @@ public class Parrafo {
 		this.documento = doc;
 	}
 
-	public int getID() {
-		return ID;
+	public long getIdParrafo() {
+		return idParrafo;
 	}
 
-	public void setID(int iD) {
-		ID = iD;
+	public void setIdParrafo(long idParrafo) {
+		this.idParrafo = idParrafo;
 	}
+
+	
 	
 	
 }

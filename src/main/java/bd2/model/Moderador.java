@@ -7,7 +7,6 @@ import java.util.Collection;
 
 public class Moderador extends Usuario {
 
-	private int ID;
 	private Collection<Idioma> idiomas = new LinkedList<Idioma>();
 	private Collection<Evaluacion> evaluaciones = new LinkedList<Evaluacion>();
 	
@@ -90,12 +89,14 @@ public class Moderador extends Usuario {
 		return this.idiomas.contains(i);
 	}
 
-	public int getID() {
-		return ID;
+	public void setIdiomas(Collection<Idioma> idiomas) {
+		this.idiomas = idiomas;
 	}
 
-	public void setID(int iD) {
-		ID = iD;
+	public void setEvaluaciones(Collection<Evaluacion> evaluaciones) {
+		this.evaluaciones = evaluaciones;
 	}
+	
+	
 	
 }

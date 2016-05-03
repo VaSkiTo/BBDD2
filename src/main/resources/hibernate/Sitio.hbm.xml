@@ -4,28 +4,25 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="Sitio" table="SITIO">
-		<meta attribute="class-description">
-			Esta clase contiene los detalles del sitio.
-		</meta>
-		<id name="idSitio" type="int" column="id_Sitio">
-			<generator class="native"></generator>
+	<class name="bd2.model.Sitio" table="SITIO">
+		<id name="idSitio" type="long" column="ID_SITIO" >
+			<generator class="native" />
 		</id>
 		<list name="usuarios" cascade="all">
-			<key column="idUsuarios"></key>
-			<index column="idUsuarios"></index>
-			<one-to-many class="Usuario"/>
+			<key column="ID_SITIO"></key>
+			<index column="idSitio"></index>
+			<one-to-many class="bd2.model.Usuario"/>
 		</list>
 		<list name="cursos" cascade="all">
-			<key column="idCursos"></key>
-			<index column="idCursos">
+			<key column="ID_SITIO"></key>
+			<index column="idSitio">
 			</index>
-			<one-to-many clas="Curso"></one-to-many>
+			<one-to-many class="bd2.model.Curso"></one-to-many>
 		</list>
 		<list name="documentos" cascade="all">
-			<key column="idDocumentos"/>
-			<index column="idDocumentos"/>
-			<one-to-many class="Documento"/>
+			<key column="ID_SITIO"/>
+			<index column="idSitio"/>
+			<one-to-many class="bd2.model.Documento"/>
 		</list>
 	</class>
 </hibernate-mapping>
