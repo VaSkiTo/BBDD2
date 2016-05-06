@@ -9,6 +9,6 @@
 			<generator class="native" />
 		</id>
 		<property name="puntaje" column="puntaje" type="int"></property>
-		<!-- <many-to-one name="leccion" cascade="all" column="idLeccion" unique="true"></many-to-one> -->
+		<many-to-one name="leccion" cascade="all" class="bd2.model.Leccion" column="idLeccion" unique="true"></many-to-one> 
 	</class>
 </hibernate-mapping>

@@ -14,7 +14,7 @@
 		<property name="completa" column="completa" type="boolean"/>
 		
 		<subclass name="bd2.model.Traduccion" extends="Tarea" discriminator-value="TC">
-			<property name="texto" column="texto" type="string"></property>
+			<property name="texto" column="texto" type="text"></property>
 			<one-to-one name="parrafo" class="bd2.model.Parrafo" cascade="all"></one-to-one>
 			<one-to-one name="idioma" class="bd2.model.Idioma" cascade="all"></one-to-one>
 		</subclass>

@@ -10,18 +10,18 @@
 		</id>
 		<list name="usuarios" cascade="all">
 			<key column="ID_SITIO"></key>
-			<index column="idSitio"></index>
+			<index column="indiceListaUsuariosDelSitio"></index>
 			<one-to-many class="bd2.model.Usuario"/>
 		</list>
 		<list name="cursos" cascade="all">
 			<key column="ID_SITIO"></key>
-			<index column="idSitio">
+			<index column="indiceListaCursosDelSitio">
 			</index>
 			<one-to-many class="bd2.model.Curso"></one-to-many>
 		</list>
 		<list name="documentos" cascade="all">
 			<key column="ID_SITIO"/>
-			<index column="idSitio"/>
+			<index column="indiceListaDocumentosDelSitio"/>
 			<one-to-many class="bd2.model.Documento"/>
 		</list>
 	</class>

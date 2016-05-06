@@ -15,22 +15,27 @@
 		
 		<list name="traducciones" cascade="all">
 			<key column="idUsuario"/>
-			<index column="ID_USUARIO"/>
+			<index column="indiceListaTraducciones"/>
 			<one-to-many class="bd2.model.Traduccion"/>
 		</list>
 		
+		<list name="cursadasRealizadas" cascade="all">
+			<key column="idUsuario"/>
+			<index column="indiceListaCursadasRealizadas"/>
+			<one-to-many class="bd2.model.Cursada"/>
+		</list>
 		
 		<joined-subclass name="bd2.model.Moderador" table="MODERADOR">
 		
 			<key column="ID_USUARIO"/>
 			<list name="idiomas" cascade="all">
 				<key column="idUsuario"/>
-				<index column="ID_USUARIO"/>
+				<index column="indiceListaIdiomas"/>
 				<one-to-many class="bd2.model.Idioma"></one-to-many>
 			</list>
 			<list name="evaluaciones" cascade="all">
 				<key column="idUsuario"></key>
-				<index column="ID_USUARIO"></index>
+				<index column="indiceListaEvaluaciones"></index>
 				<one-to-many class="bd2.model.Evaluacion"></one-to-many>
 			</list>
 			

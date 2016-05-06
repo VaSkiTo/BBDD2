@@ -9,8 +9,7 @@
 			<generator class="native" />
 		</id>
 		<!-- <property name="texto" column="texto" type="string"/>  -->
-		<property name="texto" type="string">
-            <column name="texto" length="40000" />
+		<property name="texto" type="text" length="4000">
         </property>
 		<many-to-one name="documento" class="bd2.model.Documento" cascade="all" column="idDocumento"></many-to-one>
 	</class>

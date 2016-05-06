@@ -30,44 +30,13 @@ public class Cursada {
 			menos una prueba (aprobada) para cada lección del curso correspondiente.	
 		 */
 
-		int aprobadas = 0;
-		int cantLecc = this.curso.getLecciones().size();
-		int i=0;//uso la variable i para contabilizar cuantas lecciones checkie
-		Iterator<Prueba> iter = this.pruebas.iterator();
-		
-		/*
-		
-		while ( i <= cantLecc){ //mientras me falten lecciones por recorrer, recorro.
-			if(iter.hasNext()){
-				if(iter.next().aprobada()){ //si la leccion esta aprobada, 
-					aprobadas +=1;			//sumo 1 a las aprobadas
-				}
-			}
-			i++;
+		for (Leccion leccion : this.getCurso().getLecciones()){
+			
+			if (!this.leccionesAprobadas().contains(leccion)) return false;
+			
 		}
 		
-		System.out.println("Juani: "+ aprobadas);
-		*/
-		
-		System.out.println(this.leccionesAprobadas().size()+" >= "+cantLecc);
-		
-		return (this.leccionesAprobadas().size() >= cantLecc);						   //como pruebas aprobadas, finalizo la cursada
-		
-		
-		/*
-		 *Otra solucion podria ser llamar al metodo leccionesAprobadas y comparar el size
-		 *que devuelve con el size de la cantidad de lecciones que tiene el curso; si son
-		 *iguales esta finalizada, por el contrario no lo esta. A continuacion escribo la
-		 *solucion planteada
-		 *
-		 *
-		 *	boolean ok = false;
-		 *	if(this.leccionesAprobadas().size() == this.curso.getLecciones().size()){
-		 *			ok = true;
-		 *	}
-		 *	return ok;
-		 *
-		 * */
+		return true;
 		
 	}
 	
@@ -106,7 +75,7 @@ public class Cursada {
 		return inicio;
 	}
 
-	public void setInicio(Date inicio) {
+	public void setInicio(java.util.Date inicio) {
 		this.inicio = inicio;
 	}
 

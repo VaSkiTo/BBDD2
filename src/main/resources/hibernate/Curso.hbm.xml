@@ -10,13 +10,11 @@
 		</id>
 		
 		<one-to-one name="idioma" class="bd2.model.Idioma" cascade="all"></one-to-one>
-		<!-- 
 		<list name="lecciones" cascade="all">
 			<key column="idCurso"/>
-			<index column="idLeccion"/>
-			<one-to-many class="Leccion"/>
+			<index column="indiceLista"/>
+			<one-to-many class="bd2.model.Leccion"/>
 		</list>
-		 -->
 		<property name="nivel" column="nivel" type="int"/>
 		<property name="nombre" column="nombre" type="string"/>
 	</class>
