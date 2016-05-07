@@ -15,13 +15,13 @@
 		
 		<list name="traducciones" cascade="all">
 			<key column="idUsuario"/>
-			<index column="indiceListaTraducciones"/>
+			<index column="indiceListaTraduccionesDeUsuario"/>
 			<one-to-many class="bd2.model.Traduccion"/>
 		</list>
 		
 		<list name="cursadasRealizadas" cascade="all">
 			<key column="idUsuario"/>
-			<index column="indiceListaCursadasRealizadas"/>
+			<index column="indiceListaCursadasRealizadasDeUsuario"/>
 			<one-to-many class="bd2.model.Cursada"/>
 		</list>
 		
@@ -30,12 +30,12 @@
 			<key column="ID_USUARIO"/>
 			<list name="idiomas" cascade="all">
 				<key column="idUsuario"/>
-				<index column="indiceListaIdiomas"/>
+				<index column="indiceListaIdiomasDeModerador"/>
 				<one-to-many class="bd2.model.Idioma"></one-to-many>
 			</list>
 			<list name="evaluaciones" cascade="all">
 				<key column="idUsuario"></key>
-				<index column="indiceListaEvaluaciones"></index>
+				<index column="indiceListaEvaluacionesDeModerador"></index>
 				<one-to-many class="bd2.model.Evaluacion"></one-to-many>
 			</list>
 			

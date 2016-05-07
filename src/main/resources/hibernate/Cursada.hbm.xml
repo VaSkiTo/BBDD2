@@ -13,7 +13,7 @@
 		
 		<list name="pruebas" cascade="all">
 			<key column="idCursada" />
-			<index column="indiceLista" />
+			<index column="indiceListaPruebaDeCursada" />
 			<one-to-many class="bd2.model.Prueba" />
 		</list>
 		 
