@@ -65,6 +65,10 @@ public class Documento {
 		this.parrafos = parrafos;
 	}
 
-	
+	public String toString(){
+		
+		return this.getNombre();
+		
+	}
 	
 }

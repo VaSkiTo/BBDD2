@@ -8,11 +8,7 @@
 		<id name="idSitio" type="long" column="ID_SITIO" >
 			<generator class="native" />
 		</id>
-		<list name="usuarios" cascade="all">
-			<key column="ID_SITIO"></key>
-			<index column="indiceListaUsuariosDelSitio"></index>
-			<one-to-many class="bd2.model.Usuario"/>
-		</list>
+		
 		<list name="cursos" cascade="all">
 			<key column="ID_SITIO"></key>
 			<index column="indiceListaCursosDelSitio">
