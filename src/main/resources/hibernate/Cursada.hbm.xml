@@ -17,9 +17,7 @@
 			<one-to-many class="bd2.model.Prueba" />
 		</list>
 		 
-		<many-to-one name="curso" class="bd2.model.Curso" cascade="all"
-			unique="true">
-		</many-to-one>
+		<many-to-one name="curso" class="bd2.model.Curso" cascade="all"></many-to-one>
 	  
 		<many-to-one name="usuario" class="bd2.model.Usuario" column="idUsuario"></many-to-one>
 	 

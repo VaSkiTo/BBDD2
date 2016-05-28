@@ -31,16 +31,15 @@
 			<list name="idiomas" cascade="all">
 				<key column="idUsuario"/>
 				<index column="indiceListaIdiomasDeModerador"/>
-				<one-to-many class="bd2.model.Idioma"></one-to-many>
+				<many-to-many class="bd2.model.Idioma"></many-to-many>
 			</list>
 			<list name="evaluaciones" cascade="all">
-				<key column="idUsuario"></key>
+				<key column="idModerador"></key>
 				<index column="indiceListaEvaluacionesDeModerador"></index>
 				<one-to-many class="bd2.model.Evaluacion"></one-to-many>
 			</list>
 			
 		</joined-subclass>
-		
 		
 	</class>
 </hibernate-mapping>

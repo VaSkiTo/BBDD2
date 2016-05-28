@@ -9,7 +9,7 @@
 			<generator class="native" />
 		</id>
 		
-		<one-to-one name="idioma" class="bd2.model.Idioma" cascade="all"></one-to-one>
+		<many-to-one name="idioma" class="bd2.model.Idioma" cascade="all"></many-to-one>
 		<list name="lecciones" cascade="all">
 			<key column="idCurso"/>
 			<index column="indiceListaIdiomaDeCurso"/>

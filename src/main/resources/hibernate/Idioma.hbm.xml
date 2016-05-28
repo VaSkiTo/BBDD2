@@ -10,7 +10,6 @@
 		</id>
 		<property name="nombre" column="nombre" type="string"/>
 		
-		<many-to-one name="diccionario" class="bd2.model.Diccionario"
-			cascade="all" column="idDiccionario" unique="true"></many-to-one> 
+		<many-to-one name="diccionario" class="bd2.model.Diccionario" cascade="all" column="idDiccionario"></many-to-one> 
 	</class>
 </hibernate-mapping>

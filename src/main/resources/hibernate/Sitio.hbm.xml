@@ -15,6 +15,14 @@
 			</index>
 			<one-to-many class="bd2.model.Curso"></one-to-many>
 		</list>
+		
+		<list name="usuarios" cascade="all">
+			<key column="ID_SITIO"></key>
+			<index column="indiceListaUsuarioDelSitio">
+			</index>
+			<one-to-many class="bd2.model.Usuario"></one-to-many>
+		</list>
+		
 		<list name="documentos" cascade="all">
 			<key column="ID_SITIO"/>
 			<index column="indiceListaDocumentosDelSitio"/>
