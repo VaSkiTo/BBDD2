@@ -1,7 +1,6 @@
 package bd2.util;
 
-import bd2.model.Documento;
-import bd2.model.Moderador;
+import bd2.model.*;
 
 public class QueriesRunner {
 	
@@ -25,12 +24,23 @@ public class QueriesRunner {
 		
 	}
 	
+	private static void TestQuery_3(){
+		
+		for(Usuario usuario : Queries.query_3()){
+			
+			System.out.println(usuario);
+			
+		}
+		
+	}
+	
 	public static void main(String[] args) {
 		
-		TestQuery_1();
+		//TestQuery_1();
 		
-		TestQuery_2();
+		//TestQuery_2();
 		
+		TestQuery_3();
 	}
 
 }

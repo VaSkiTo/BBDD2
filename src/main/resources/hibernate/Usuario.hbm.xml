@@ -29,7 +29,7 @@
 		
 			<key column="ID_USUARIO"/>
 			<list name="idiomas" cascade="all">
-				<key column="idUsuario"/>
+				<key column="idModerador"/>
 				<index column="indiceListaIdiomasDeModerador"/>
 				<many-to-many class="bd2.model.Idioma"></many-to-many>
 			</list>

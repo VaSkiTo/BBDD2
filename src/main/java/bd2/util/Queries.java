@@ -10,6 +10,7 @@ import org.hibernate.cfg.Configuration;
 
 import bd2.model.Documento;
 import bd2.model.Moderador;
+import bd2.model.Usuario;
 
 public class Queries {
 	
@@ -57,9 +58,44 @@ public class Queries {
         tx = session.beginTransaction();
         tx.setTimeout(5);
         
-		Query query = session.createQuery("SELECT E FROM Evaluacion as E WHERE E.traduccion.idioma.nombre = 'Ingles'");
+		Query query = session.createQuery(""
+				+ "FROM bd2.model.Moderador as M "
+				+ "WHERE ':idIdioma in (SELECT E.traduccion.idioma.idIdioma FROM M.evaluaciones AS E)");
+		
+		query.setParameter("idIdioma", 3);
 		
 		tx.commit();
+		
+		
+		return query.list();
+		
+	}
+	
+	public static List<Usuario> query_3(){
+		
+		// Listar los emails de los moderadores que hayan evaluado traducciones al ingles
+		
+		Transaction tx = null;
+		
+		System.out.println("Listar los emails de los moderadores que hayan evaluado traducciones al ingles");
+		
+		Configuration cfg = new Configuration();
+        cfg.configure("hibernate/hibernate.cfg.xml");
+		sessions = cfg.buildSessionFactory();
+        
+        Session session = sessions.openSession();
+        
+        tx = session.beginTransaction();
+        tx.setTimeout(5);
+        
+		Query query = session.createQuery(""
+				+ "FROM bd2.model.Moderador as M "
+				+ "WHERE ':idIdioma in (SELECT E.traduccion.idioma.idIdioma FROM M.evaluaciones AS E)");
+		
+		query.setParameter("idIdioma", 3);
+		
+		tx.commit();
+		
 		
 		return query.list();
 		

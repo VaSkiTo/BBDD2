@@ -6,6 +6,7 @@ public class Evaluacion extends Tarea {
 
 	private int puntaje;
 	private Traduccion traduccion;
+	private Moderador moderador; // AGREGADO PARA QUERY 2
 	
 	public Evaluacion(){
 		
@@ -34,6 +35,18 @@ public class Evaluacion extends Tarea {
 	
 	public void setTraduccion(Traduccion t){
 		this.traduccion = t;
+	}
+
+	public Moderador getModerador() {
+		return moderador;
+	}
+
+	public void setModerador(Moderador moderador) {
+		this.moderador = moderador;
+	}
+
+	public void setPuntaje(int puntaje) {
+		this.puntaje = puntaje;
 	}
 	
 	

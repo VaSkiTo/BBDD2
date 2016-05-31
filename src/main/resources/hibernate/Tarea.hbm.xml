@@ -22,7 +22,7 @@
 		<subclass name="bd2.model.Evaluacion" extends="Tarea" discriminator-value="EV">
 			<property name="puntaje" column="puntaje" type="int"></property>
 			<many-to-one name="traduccion" class="bd2.model.Traduccion" cascade="all"></many-to-one>
-			
+			<many-to-one name="Moderador" class="bd2.model.Moderador"></many-to-one>
 		</subclass>
 		  
 	</class>
