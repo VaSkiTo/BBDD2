@@ -137,7 +137,11 @@ public class Usuario {
 		this.cursadasRealizadas = cursadasRealizadas;
 	}
 	
-	
+	public String toString(){
+		
+		return this.getNombre();
+		
+	}
 	
 	
 }

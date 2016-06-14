@@ -8,9 +8,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import bd2.model.Documento;
-import bd2.model.Moderador;
-import bd2.model.Usuario;
+import bd2.model.*;
 
 public class Queries {
 	
@@ -89,13 +87,9 @@ public class Queries {
         tx.setTimeout(5);
         
 		Query query = session.createQuery(""
-				+ "FROM bd2.model.Moderador as M "
-				+ "WHERE ':idIdioma in (SELECT E.traduccion.idioma.idIdioma FROM M.evaluaciones AS E)");
-		
-		query.setParameter("idIdioma", 3);
+				+ "FROM bd2.model.Usuario as U");
 		
 		tx.commit();
-		
 		
 		return query.list();
 		
