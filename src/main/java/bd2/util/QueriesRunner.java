@@ -34,13 +34,85 @@ public class QueriesRunner {
 		
 	}
 	
+	private static void TestQuery_4(){
+		
+		for(Usuario usuario : Queries.query_4()){
+			
+			System.out.println(usuario);
+			
+		}
+		
+	}
+	
+	private static void TestQuery_5(){
+		
+		for(Traduccion traduccion : Queries.query_5()){
+			
+			System.out.println(traduccion.getDescripcion());
+			
+		}
+		
+	}
+	
+	private static void TestQuery_6(){
+		
+		for(Usuario usuario : Queries.query_6()){
+			
+			System.out.println(usuario.getEmail());
+			
+		}
+		
+	}
+	
+	private static void TestQuery_7(){
+		
+		for(Idioma idioma : Queries.query_7()){
+			
+			System.out.println(idioma.getNombre());
+			
+		}
+		
+	}
+	
+	private static void TestQuery_8(){
+		
+		for(Documento documento : Queries.query_8()){
+			
+			System.out.println(documento.getNombre());
+			
+		}
+		
+	}
+	
+	private static void TestQuery_9(){
+		
+		for(Documento documento : Queries.query_9()){
+			
+			System.out.println("El documento "+documento.getNombre()+" no esta totalmente traducido");
+			
+		}
+		
+	}
+	
 	public static void main(String[] args) {
 		
 		//TestQuery_1();
 		
 		//TestQuery_2();
 		
-		TestQuery_3();
+		//TestQuery_3();
+		
+		//TestQuery_4();
+		
+		//TestQuery_5();
+		
+		TestQuery_6();
+		
+		//TestQuery_7();
+		
+		//TestQuery_8();
+		
+		//TestQuery_9();
 	}
 
 }
